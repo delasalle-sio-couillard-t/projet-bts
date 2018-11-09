@@ -21,14 +21,14 @@
     <head>
         <meta charset="utf-8" />
         <title>Râ'Smoothie</title>
-        <link rel="stylesheet" type="text/css" href="Styles/style.css" />
-        <link rel="icon" type="image/png" href="Images/logo.png" />
+        <link rel="stylesheet" type="text/css" href="styles/style.css" />
+        <link rel="icon" type="image/png" href="images/logo.png" />
 <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><![endif]-->
     </head>
        
     <body>
         <header>
-            <img src="Images/bandeau.jpg" width=50%  margin-left=0 alt="ombre" title="ombrage" class="redim_img"/>         
+            <img src="images/bandeau.jpg" width=50%  margin-left=0 alt="ombre" title="ombrage" class="redim_img"/>         
         </header>
        
         <nav>
@@ -37,7 +37,7 @@
        
         <section>
 			<table>
-            <img src="logo.gif" width=50%  margin-left=0 alt="ombre" title="ombrage" class="redim_img"/>   
+            <img src="images/logo.gif" width=50%  margin-left=0 alt="ombre" title="ombrage" class="redim_img"/>   
         </section>
        
         <footer>
