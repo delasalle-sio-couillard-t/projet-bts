@@ -19,35 +19,61 @@
 <html>
 	<!-- Début du corps -->  
 	<body>
+		<div class="container-fluid">
+			<center>
+				<h2>
+					Nos Smoothies
+				</h2>
+			</center>
+		</div>
 		<!-- Création pour un smoothie -->
-		<table class="table">
-			<thead class="thead-dark">
-				<tr>					
-					<h2>
-						<center>Nos Smoothies</center>
-					</h2>
-				</tr>
-			</thead>
-			<tbody>
+		<div class="container">
+			<table>
 				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
+					<?php
+						$reqProduit = $cnx->prepare("SELECT * FROM produit");
+						$reqProduit->execute();
+						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+					
+						// while pour les boutons
+						while($ligneProduit)
+						{						
+							echo	'<td>'.
+										'<p><a class="btn btn-link" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'">'.
+											$ligneProduit->libelle.
+										'</a></p>
+									</td>';
+							
+							$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+						}
+					?>
 				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>Larry</td>
-					<td>the Bird</td>
-					<td>@twitter</td>
-				</tr>
-			</tbody>
-		</table>		
+			</table>
+		</div>
+		<div class="container">
+			<?php
+				$reqProduit = $cnx->prepare("SELECT * FROM produit");
+				$reqProduit->execute();
+				$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+					
+				// while pour les boutons
+				while($ligneProduit)
+				{						
+					echo'			
+						<div class="collapse" id="collapse'.$ligneProduit->id.'">'.
+							'<div class="card card-body">
+								<p>'.
+									$ligneProduit->libelle.'</br>'.
+									$ligneProduit->prix.'</br>'.
+									$ligneProduit->description.'</br>'.
+									$ligneProduit->image.'</br>'.
+								'</p>
+							</div>
+						</div>';
+							
+					$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+				}
+			?>
+		</div>
 	</body>
 </html>
