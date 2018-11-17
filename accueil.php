@@ -66,7 +66,7 @@
 									$ligneProduit->libelle.'</br>'.
 									$ligneProduit->prix.'</br>'.
 									$ligneProduit->description.'</br>'.
-									$ligneProduit->image.'</br>'.
+									'<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>'.
 								'</p>
 							</div>
 						</div>';
