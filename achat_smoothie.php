@@ -103,10 +103,10 @@
 	<?php
 	
 	$libelleProduit = $_POST ['libelleProduit'];
-	//$reqProduit = $cnx->prepare("SELECT * FROM produit WHERE libelle = :libelle");
-	//					bindvalue(':libelle',$libelleProduit,PDO::PARAM_INT);
-	//					$reqProduit->execute();
-	//					$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+	$reqProduit = $cnx->prepare("SELECT * FROM produit WHERE libelle = :libelle");
+						$reqProduit->bindValue(':libelle',$libelleProduit,PDO::PARAM_INT);
+						$reqProduit->execute();
+						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
 	
 	echo'
     </head>
@@ -114,14 +114,14 @@
 		<section class="container">
 				<legend>Gestion du panier</legend>
 				
-				<input type="hidden" id="prixInitial" value="2"></input>
+				<input type="hidden" id="prixInitial" value="'.$ligneProduit->prix.'"></input>
 				<table class="table">
 					<tr>
 						<td>
 							<label class="col-lg-3">Identifiant</label>
 						</td>
 						<td>
-							<input type="text" value="'.$libelleProduit.'" id = "id" style="width:120px" class="input-sm form-control" disabled></input>
+							<input type="text" value="'.$libelleProduit.'" id = "id" style="width:120px" class="input-sm form-control" size="30" disabled></input>
 						</td>
 					</tr>
 					<tr>
@@ -129,7 +129,7 @@
 							<label class="col-lg-3" >Quantité</label>
 						</td>
 						<td>
-							<input type = "number" id = "qte" style="width:120px" class="input-sm form-control" OnChange= "change()" ></input>
+							<input type = "number" id = "qte" style="width:120px" value="1" class="input-sm form-control" OnChange= "change()" ></input>
 						</td>
 					</tr>
 					<tr>
@@ -137,7 +137,7 @@
 							<label class="col-lg-3">Prix</label>
 						</td>
 						<td>
-							<input type = "text" id = "prix" style="width:120px" class="input-sm form-control" value="prixBDD*Quantité" disabled></input>
+							<input type = "text" id = "prix" style="width:120px" class="input-sm form-control" value="'.$ligneProduit->prix.'" disabled></input>
 						</td>
 					</tr>
 					<tr>
@@ -148,6 +148,7 @@
 						</td>
 					</tr>
 				</table>
+				<button class="btn btn-primary" ><span class="glyphicon glyphicon-shopping-cart"></span> oui</button>
 		</section>
 	</body>';
 	?>
