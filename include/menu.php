@@ -21,7 +21,7 @@
 				<a class="nav-link" href="">Smoothie</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="">Panier</a>
+				<a class="nav-link" href="pannier.php">Panier</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="">Les guides</a>

@@ -1,9 +1,27 @@
+<?php 
+	/* ouverture d'une session */
+	// cette instruction doit toujours être la première ligne du code pour fonctionner!!!!!!!!!!!!!
+	session_start();	
+	
+	//inclusion du menu
+	include('include/menu.php'); 
+		
+	//inclusion du header
+	include('include/head.php');
+		
+	// inclusion des paramètres et de la bibliothéque de fonctions ("include_once" peut être remplacé par "require_once")
+	include_once ('include/_inc_parametres.php');
+	// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
+	include_once ('include/_inc_connexion.php');
+
+?>
 <!doctype html>
 <html lang="fr">
     <head>
+		
         <meta charset="UTF-8">
         <title>Panier HTML5 + JavaScript</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">	
         <script type="text/javascript" src="panier.js"></script>
         <script type="text/javascript">
             function ajouter()
@@ -83,25 +101,58 @@
 			}
         </script>
 	<?php
+	
+	//$idProduit = $_POST/$_GET ['idProduit']
+	//$reqProduit = $cnx->prepare("SELECT * FROM produit WHERE id = :id");
+	//					Bindvalue(':id',$idProduit,PDO::PARAM_INT)
+	//					$reqProduit->execute();
+	//					$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);	
+	
+	$idProduit = 1; //valeur temporaire
+	
 	echo'
     </head>
     <body>
-        <section  class="container">
-            <article class="well form-inline pull-left col-lg-5">
-                <legend>Gestion du panier</legend>
-                <label class="col-lg-3">Identifiant</label> : 
-				
+		<section class="container">
+				<legend>Gestion du panier</legend>
 				
 				<input type="hidden" id="prixInitial" value="2"></input>
-				<input type="text" value="le nom du produit" id = "idProduit" style="width:120px" class="input-sm form-control" disabled></input>
-				<br><br>
-                <label class="col-lg-3" >Quantité</label> : <input type = "number" id = "qte" style="width:120px" class="input-sm form-control" OnChange= "change()" ></input><br><br> 
-                <label class="col-lg-3">Prix</label> : <input type = "text" id = "prix" style="width:120px" class="input-sm form-control" value="prixBDD*Quantité" disabled></input><br><br>
-                <button class="btn btn-primary" type="submit" onclick="ajouter()"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
-            </article>
-        </section>
+				<table class="table">
+					<tr>
+						<td>
+							<label class="col-lg-3">Identifiant</label>
+						</td>
+						<td>
+							<input type="text" value="'.$idProduit.'" id = "id" style="width:120px" class="input-sm form-control" disabled></input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label class="col-lg-3" >Quantité</label>
+						</td>
+						<td>
+							<input type = "number" id = "qte" style="width:120px" class="input-sm form-control" OnChange= "change()" ></input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label class="col-lg-3">Prix</label>
+						</td>
+						<td>
+							<input type = "text" id = "prix" style="width:120px" class="input-sm form-control" value="prixBDD*Quantité" disabled></input>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button class="btn btn-primary" type="submit" onclick="ajouter()"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
+						</td>
+						<td>
+						</td>
+					</tr>
+				</table>
+		</section>
+		
         <section class="container">
-            <article class="well form-inline pull-left col-lg-5">
                 <legend>Contenu du panier</legend>
                 <table id="tableau" class="table">
                     <thead>
@@ -116,7 +167,6 @@
                 </table>
                 <br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
                 <label id = "nbreLignes" hidden>0</label>
-            </article>
         </section>
     </body>
 </html>';
