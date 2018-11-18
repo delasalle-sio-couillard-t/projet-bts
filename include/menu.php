@@ -9,7 +9,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="accueil.php">
-		<img src="images/logo.png" width="30" height="30" alt="">
+		<img src="images/logo.png" width="50" height="50" alt="">
 		Râ'Smoothie
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
 				<a class="nav-link" href="">Smoothie</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="pannier.php">Panier</a>
+				<a class="nav-link" href="panier.php">Panier</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="">Les guides</a>
