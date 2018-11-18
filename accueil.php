@@ -32,102 +32,59 @@
 		<!-- Création pour un smoothie -->
 		<form method="post" action="achat_smoothie.php">
 			<div class="container">
+				<center>
+					<table>
 						<?php
-							// $reqProduit = $cnx->prepare("SELECT * FROM produit");
-							// $reqProduit->execute();
-							// $ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-						
-							// while pour les boutons
-							// while($ligneProduit)
-							// {						
-								// echo	'<table>
-											// <tr>
-												// <td>'.
-													// '<p><a class="btn btn-secondary" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'">'.
-														// $ligneProduit->libelle.
-													// '</a></p>
-												// </td>';
-												
-								// echo'			<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
-												// <td>
-													// <div class="collapse" id="collapse'.$ligneProduit->id.'">'.
-														// '<div class="card card-body">
-															// <p>'.
-																// $ligneProduit->libelle.'</br>'.
-																// $ligneProduit->prix.'</br>'.
-																// $ligneProduit->description.'</br>'.
-																// '<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>'.
-																// '<button class="btn btn-outline-dark btn-sm" type="submit" onclick="ajouter()">Ajouter au panier</button>
-															// </p>
-														// </div>
-													// </div>	
-												// </td>
-											// </tr>
-										// </table>';
+							$reqProduit = $cnx->prepare("SELECT * FROM produit");
+							$reqProduit->execute();
+							$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+							
+							$compteur = 0;
+											
+							while($ligneProduit)
+							{		
+								$compteur = $compteur + 1;
 								
-								// $ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-							// }
-						?>
+								if($compteur == 1)
+								{
+									echo '<tr>';
+								}
+								echo 	'<td>
+											<p>
+												<center>
+													<a class="btn btn-secondary" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'">'.
+													$ligneProduit->libelle.
+													'</a>
+													<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>
+												</center>
+											</p>';	
+										
+								echo'	<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
+											<div class="collapse" id="collapse'.$ligneProduit->id.'">'.
+												'<div class="card card-body">
+													<p>'.
+														$ligneProduit->libelle.'</br>'.
+														$ligneProduit->prix.'</br>'.
+														$ligneProduit->description.'</br>'.
+														'<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>'.
+														'<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
+													</p>
+												</div>
+											</div>
+										</td>';		
+								
+								if($compteur == 4)
+								{
+									echo '</tr>';
+									$compteur = 0;
+								}
+														
+								$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+							}
+						?>				
+					</table>
+				</center>
 			</div>
 		</form>
-		<div class="container-fluid">
-			<center>
-				<h2>
-					test affichage n°2
-				</h2>
-			</center>
-		</div>
-		<div class="container">
-			<center>
-			<table>
-				<?php
-					$reqProduit = $cnx->prepare("SELECT * FROM produit");
-					$reqProduit->execute();
-					$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-					
-					$compteur = 0;
-									
-					while($ligneProduit)
-					{		
-						$compteur = $compteur + 1;
-						
-						if($compteur == 1)
-						{
-							echo '<tr>';
-						}
-						echo 	'<td>
-									<p>
-										<center>
-											<a class="btn btn-secondary" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'">'.
-											$ligneProduit->libelle.
-											'</a>
-										</center>
-									</p>';	
-								
-						echo'	<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
-									<div class="collapse" id="collapse'.$ligneProduit->id.'">'.
-										'<div class="card card-body">
-											<p>'.
-												$ligneProduit->libelle.'</br>'.
-												$ligneProduit->prix.'</br>'.
-												$ligneProduit->description.'</br>'.
-												'<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>'.
-												'<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
-											</p>
-										</div>
-									</div>
-								</td>';		
-						
-						if($compteur == 4)
-						{
-							echo '</tr>';
-							$compteur = 0;
-						}
-												
-						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-					}
-				?>				
-			</table>
-			</center>
 	</body>
 </html>
