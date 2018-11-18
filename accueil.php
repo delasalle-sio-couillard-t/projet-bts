@@ -17,6 +17,9 @@
 ?>
 <!DOCTYPE HTML> 
 <html>
+	<head>
+		<link rel="icon" href="image/logo.ico" />
+	</head>
 	<!-- Début du corps -->  
 	<body>
 		<div class="container-fluid">
@@ -50,30 +53,35 @@
 				</tr>
 			</table>
 		</div>
-		<div class="container">
-			<?php
-				$reqProduit = $cnx->prepare("SELECT * FROM produit");
-				$reqProduit->execute();
-				$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-					
-				// while pour les boutons
-				while($ligneProduit)
-				{						
-					echo'			
-						<div class="collapse" id="collapse'.$ligneProduit->id.'">'.
-							'<div class="card card-body">
-								<p>'.
-									$ligneProduit->libelle.'</br>'.
-									$ligneProduit->prix.'</br>'.
-									$ligneProduit->description.'</br>'.
-									'<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>'.
-								'</p>
-							</div>
-						</div>';
-							
+		<form method="post" action="achat_smoothie.php">
+			<div class="container">
+				<?php
+					$reqProduit = $cnx->prepare("SELECT * FROM produit");
+					$reqProduit->execute();
 					$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-				}
-			?>
-		</div>
+						
+					// while pour les boutons
+					// while pour les boutons
+					while($ligneProduit)
+					{						
+						echo'	
+							<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
+							<div class="collapse" id="collapse'.$ligneProduit->id.'">'.
+								'<div class="card card-body">
+									<p>'.
+										$ligneProduit->libelle.'</br>'.
+										$ligneProduit->prix.'</br>'.
+										$ligneProduit->description.'</br>'.
+										$ligneProduit->image.'</br>'.'</br>
+										<button class="btn btn-outline-dark btn-sm" type="submit" onclick="ajouter()">Ajouter au panier</button>
+									</p>
+								</div>
+							</div>';
+								
+						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+					}
+				?>
+			</div>
+		</form>
 	</body>
 </html>
