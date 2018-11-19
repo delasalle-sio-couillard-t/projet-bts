@@ -17,9 +17,6 @@
 ?>
 <!DOCTYPE HTML> 
 <html>
-	<head>
-		<link rel="icon" href="image/logo.ico" />
-	</head>
 	<!-- Début du corps -->  
 	<body style="background-color:#eee7e7"> <!--background-image:url(images/fondSite); background-size:cover;-->
 		<div class="container-fluid">
@@ -57,7 +54,7 @@
 												'</center>
 											</p>';	
 										
-								echo'	<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
+								echo'	<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
 											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
 												'<div class="card card-body" style="background-color:#FEF7FB">
 													<p>'.

@@ -102,15 +102,15 @@
         </script>
 	<?php
 	
-	$libelleProduit = $_POST ['libelleProduit'];
-	$reqProduit = $cnx->prepare("SELECT * FROM produit WHERE libelle = :libelle");
-						$reqProduit->bindValue(':libelle',$libelleProduit,PDO::PARAM_INT);
+	$idProduit = $_POST ['idProduit'];
+	$reqProduit = $cnx->prepare("SELECT * FROM produit WHERE id = :id");
+						$reqProduit->bindValue(':id',$idProduit,PDO::PARAM_INT);
 						$reqProduit->execute();
 						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
 	
 	echo'
     </head>
-    <body>
+    <body style="background-color:#eee7e7">
 		<section class="container">
 				<legend>Gestion du panier</legend>
 				
@@ -121,7 +121,7 @@
 							<label class="col-lg-3">Identifiant</label>
 						</td>
 						<td>
-							<input type="text" value="'.$libelleProduit.'" id = "id" style="width:120px" class="input-sm form-control" size="30" disabled></input>
+							<input type="text" value="'.$idProduit.'" id = "id" style="width:120px" class="input-sm form-control" size="30" disabled></input>
 						</td>
 					</tr>
 					<tr>

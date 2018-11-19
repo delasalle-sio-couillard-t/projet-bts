@@ -112,46 +112,7 @@
 	
 	echo'
     </head>
-    <body>
-		<section class="container">
-				<legend>Gestion du panier</legend>
-				
-				<input type="hidden" id="prixInitial" value="2"></input>
-				<table class="table">
-					<tr>
-						<td>
-							<label class="col-lg-3">Identifiant</label>
-						</td>
-						<td>
-							<input type="text" value="'.$idProduit.'" id = "id" style="width:120px" class="input-sm form-control" disabled></input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label class="col-lg-3" >Quantité</label>
-						</td>
-						<td>
-							<input type = "number" id = "qte" style="width:120px" class="input-sm form-control" OnChange= "change()" ></input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label class="col-lg-3">Prix</label>
-						</td>
-						<td>
-							<input type = "text" id = "prix" style="width:120px" class="input-sm form-control" value="prixBDD*Quantité" disabled></input>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button class="btn btn-primary" type="submit" onclick="ajouter()"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
-						</td>
-						<td>
-						</td>
-					</tr>
-				</table>
-		</section>
-		
+    <body style="background-color:#eee7e7">	
         <section class="container">
                 <legend>Contenu du panier</legend>
                 <table id="tableau" class="table">
