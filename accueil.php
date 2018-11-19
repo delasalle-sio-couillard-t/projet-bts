@@ -21,7 +21,7 @@
 		<link rel="icon" href="image/logo.ico" />
 	</head>
 	<!-- Début du corps -->  
-	<body>
+	<body style=" background-image:url(images/fondSite); background-size:cover;">
 		<div class="container-fluid">
 			<center>
 				<h2>
@@ -33,7 +33,7 @@
 		<form method="post" action="achat_smoothie.php">
 			<div class="container">
 				<center>
-					<table>
+					<table  class="table">
 						<?php
 							$reqProduit = $cnx->prepare("SELECT * FROM produit");
 							$reqProduit->execute();
@@ -52,21 +52,18 @@
 								echo 	'<td>
 											<p>
 												<center>
-													<a class="btn btn-secondary" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'">'.
-													$ligneProduit->libelle.
-													'</a>
-													<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>
-												</center>
+													<img src="images/'.$ligneProduit->image.'" width="300" height="300" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br>'.
+													$ligneProduit->libelle.													
+												'</center>
 											</p>';	
 										
 								echo'	<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
-											<div class="collapse" id="collapse'.$ligneProduit->id.'">'.
+											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
 												'<div class="card card-body">
 													<p>'.
 														$ligneProduit->libelle.'</br>'.
 														$ligneProduit->prix.'</br>'.
 														$ligneProduit->description.'</br>'.
-														'<img src="images/'.$ligneProduit->image.'" width="300" height="300" alt=""></br>'.
 														'<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
 													</p>
 												</div>
