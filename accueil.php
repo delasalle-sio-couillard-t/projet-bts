@@ -59,7 +59,7 @@
 										
 								echo'	<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
 											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
-												'<div class="card card-body" style="background-color:#eee7e7">
+												'<div class="card card-body" style="background-color:#FEF7FB">
 													<p>'.
 														$ligneProduit->libelle.'</br>'.
 														$ligneProduit->prix.'</br>'.
