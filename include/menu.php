@@ -7,9 +7,9 @@
 <link href="styles/style.css" rel="stylesheet" type="text/css" />
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image:url(images/banniere2); background-size:cover;">
 	<a class="navbar-brand" href="accueil.php">
-		<img src="images/logo.png" width="50" height="50" alt="">
+		<img src="images/logo.png" width="64" height="48" alt="">
 		Râ'Smoothie
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

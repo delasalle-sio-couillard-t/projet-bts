@@ -21,7 +21,7 @@
 		<link rel="icon" href="image/logo.ico" />
 	</head>
 	<!-- Début du corps -->  
-	<body style=" background-image:url(images/fondSite); background-size:cover;">
+	<body style="background-color:#eee7e7"> <!--background-image:url(images/fondSite); background-size:cover;-->
 		<div class="container-fluid">
 			<center>
 				<h2>
