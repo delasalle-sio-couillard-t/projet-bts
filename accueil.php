@@ -52,7 +52,7 @@
 								echo 	'<td>
 											<p>
 												<center>
-													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br>'.
+													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"><br><br>'.
 													$ligneProduit->libelle.													
 												'</center>
 											</p>';	
@@ -60,10 +60,10 @@
 								echo'	<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
 											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
 												'<div class="card card-body" style="background-color:#FEF7FB">
-													<p>'.
-														$ligneProduit->libelle.'</br>'.
-														$ligneProduit->prix.'</br>'.
+													<p>	
+														Description : <br>'.
 														$ligneProduit->description.'</br>'.
+														$ligneProduit->prix.'</br>'.													
 														'<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
 													</p>
 												</div>
