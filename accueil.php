@@ -52,14 +52,14 @@
 								echo 	'<td>
 											<p>
 												<center>
-													<img src="images/'.$ligneProduit->image.'" width="300" height="300" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br>'.
+													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br>'.
 													$ligneProduit->libelle.													
 												'</center>
 											</p>';	
 										
 								echo'	<input type="hidden" name="libelleProduit" value="'.$ligneProduit->libelle.'">
 											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
-												'<div class="card card-body">
+												'<div class="card card-body" style="background-color:#eee7e7">
 													<p>'.
 														$ligneProduit->libelle.'</br>'.
 														$ligneProduit->prix.'</br>'.
