@@ -55,7 +55,7 @@
                     var colonne4 = ligneTableau.insertCell(3);
                     colonne4.innerHTML += ligne.getPrixLigne();
                     var colonne5 = ligneTableau.insertCell(4);
-                    colonne5.innerHTML += "<button class=\"btn btn-primary\" type=\"submit\" onclick=\"supprimer(this.parentNode.parentNode.cells[0].innerHTML)\"><span class=\"glyphicon glyphicon-remove\"></span> Retirer</button>";
+                    colonne5.innerHTML += "<button class=\"btn btn-outline-dark\" type=\"submit\" onclick=\"supprimer(this.parentNode.parentNode.cells[0].innerHTML)\"><span class=\"glyphicon glyphicon-remove\"></span> Retirer</button>";
                 }
                 document.getElementById("prixTotal").innerHTML = monPanier.getPrixPanier();
                 document.getElementById("nbreLignes").innerHTML = longueur;
@@ -129,7 +129,7 @@
 							<label class="col-lg-3" >Quantité</label>
 						</td>
 						<td>
-							<input type = "number" id = "qte" style="width:120px" value="1" class="input-sm form-control" OnChange= "change()" ></input>
+							<input type = "number" min="1" id = "qte" style="width:120px" value="1" class="input-sm form-control" OnChange= "change()" ></input>
 						</td>
 					</tr>
 					<tr>
@@ -142,13 +142,30 @@
 					</tr>
 					<tr>
 						<td>
-							<button class="btn btn-primary" type="submit" onclick="ajouter()"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
+							<button class="btn btn-outline-dark" type="submit" onclick="ajouter()"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
 						</td>
 						<td>
 						</td>
 					</tr>
 				</table>
-				<button class="btn btn-primary" ><span class="glyphicon glyphicon-shopping-cart"></span> oui</button>
 		</section>
+		
+		<section class="container">
+                <legend>Contenu du panier</legend>
+                <table id="tableau" class="table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Qte</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix de la ligne</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+                </table>
+                <br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
+                <label id = "nbreLignes" hidden>0</label><br><br>
+				<button class="btn btn-outline-dark" ><span class="glyphicon glyphicon-shopping-cart"></span> Valider la commande</button>
+        </section>
 	</body>';
 	?>
