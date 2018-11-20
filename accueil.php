@@ -18,7 +18,8 @@
 <!DOCTYPE HTML> 
 <html>
 	<!-- Début du corps -->  
-	<body style="background-color:#eee7e7"> <!--background-image:url(images/fondSite); background-size:cover;-->
+	<body style="background-image:url(images/pastel2); background-size: cover;">
+		<!--<img src="images/licorne" width="250" height="380" style="float:right; max-width: 200%; height: auto;";>-->
 		<div class="container-fluid">
 			<center>
 				<h2>
@@ -49,7 +50,7 @@
 								echo 	'<td>
 											<p>
 												<center>
-													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"><br><br>'.
+													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br>'.
 													$ligneProduit->libelle.													
 												'</center>
 											</p>';	
@@ -57,10 +58,10 @@
 								echo'	<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
 											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
 												'<div class="card card-body" style="background-color:#FEF7FB">
-													<p>	
-														Description : <br>'.
+													<p>'.
+														$ligneProduit->libelle.'</br>'.
+														$ligneProduit->prix.'</br>'.
 														$ligneProduit->description.'</br>'.
-														$ligneProduit->prix.'</br>'.													
 														'<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
 													</p>
 												</div>

@@ -168,4 +168,6 @@
 				<button class="btn btn-outline-dark" ><span class="glyphicon glyphicon-shopping-cart"></span> Valider la commande</button>
         </section>
 	</body>';
+	
+	include('include/footer.php');
 	?>
