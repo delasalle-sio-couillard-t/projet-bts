@@ -110,7 +110,7 @@
 	
 	echo'
     </head>
-    <body style="background-color:#eee7e7">
+    <body style="background-image:url(images/pastel2); background-size: cover;">
 		<section class="container">
 				<legend>Gestion du panier</legend>
 				
