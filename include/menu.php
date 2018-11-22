@@ -23,24 +23,30 @@
 			<li class="nav-item">
 				<a class="nav-link" href="panier.php">Panier</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="">Les guides</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="">Info légalité</a>
-			</li>
-			<li class="nav-item">
-				<?php
-					// if($_SESSION['LEVEL']=='admin')
-					// {
-						// echo ('<a class="nav-link " href="Accueil.php">Administration</a>');
-					// }
-					// else
-					// {
-						// echo ('<a class="nav-link disabled" href="Accueil.php">Administration</a>');
-					// }
-				 ?>
-			</li>
+			<?php
+				if(isset($_SESSION['niveau'])!=true)
+				{
+						echo '<li class="nav-item">
+							<a class="nav-link" href="connexion.php">Connexion</a>
+						</li>';
+				}
+				
+				if(isset($_SESSION['niveau']))
+				{
+					echo '<li class="nav-item">
+							<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
+						</li>';
+				}
+			?>
+			<?php
+				if(isset($_SESSION['niveau']))
+				{
+					if($_SESSION['niveau']=='admin')
+					{
+						echo ('<li class="nav-item"><a class="nav-link " href="Accueil.php">Administration</a></li>');
+					}
+				}
+			 ?>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

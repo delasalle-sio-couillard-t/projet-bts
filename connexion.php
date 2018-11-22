@@ -92,7 +92,7 @@
 							}
 						
 							/* appel de la page suivante accueil.php*/
-							header("Location:accueil.php");	
+							header("Location:index.php");	
 						}
 						else
 						{
@@ -102,7 +102,7 @@
 								<h3>Erreur de connexion</h3>
 								<div id="erreurCo">
 									Erreur de connexion, informations erronées ! </br>							
-									<a href="Index.php"><u>Retour</u></a>
+									<a href="index.php"><u>Retour</u></a>
 								</div>
 							</div>
 		<?php
@@ -117,7 +117,7 @@
 				session_unset();
 				session_destroy();
 				/* retour à la page accueil.php  */
-				header("Location:accueil.php");
+				header("Location:index.php");
 			}
 			else
 			{
