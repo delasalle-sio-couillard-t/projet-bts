@@ -17,9 +17,6 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">		
 		</li><ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="panier.php">Panier</a>
-			</li>
 			<?php
 				if(isset($_SESSION['niveau'])!=true)
 				{
@@ -27,12 +24,14 @@
 							<a class="nav-link" href="connexion.php">Connexion</a>
 						</li>';
 				}
-				
-				if(isset($_SESSION['niveau']))
+				else 
 				{
-					echo '<li class="nav-item">
-							<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
-						</li>';
+					echo 	'<li class="nav-item">
+								<a class="nav-link" href="panier.php">Panier</a>
+							</li>';
+					echo 	'<li class="nav-item">
+								<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
+							</li>';
 				}
 				
 				if(isset($_SESSION['niveau']))
