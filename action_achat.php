@@ -10,6 +10,7 @@ session_start();
 	include_once ('include/_inc_parametres.php');
 	// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
 	include_once ('include/_inc_connexion.php');
+	include_once ('include/Outils.php');
 	
 if(isset($_SESSION['niveau'])!=true)
 {
@@ -19,27 +20,20 @@ if(isset($_SESSION['niveau'])!=true)
 else
 {
 	$mail = $_SESSION ['adrMail'];
-	echo $_POST['idProduit'];
 	
-	$idUtilisateur = $cnx->prepare("SELECT id FROM utilisateur WHERE adrMail LIKE :mail");
-	$idUtilisateur->bindValue(':mail',$mail ,PDO::PARAM_STR);
-	$idUtilisateur->execute();
-	$ligneUtilisateur = $idUtilisateur->fetch(PDO::FETCH_OBJ);
+	$idUtilisateur = Outils::getIdUtilisateur($mail);
 	
-	$lesCommandesUtilisateur = $cnx->prepare("SELECT * FROM commande, utilisateur AND commande.idUtilisateur = :idUtilisateur AND fini LIKE 'N'");
-	$lesCommandesUtilisateur->bindValue(':idUtilisateur',$ligneUtilisateur->id ,PDO::PARAM_INT);
-	$lesCommandesUtilisateur->execute();
-	$commandeEnCour = $lesCommandesUtilisateur->fetch(PDO::FETCH_OBJ);
+	$commandeEnCour = Outils::getCommandeUtilisateurEnCours($idUtilisateur);
 	
 	if($commandeEnCour==false)
 	{
 		$creationCommande = $cnx->prepare("INSERT INTO commande (dateCommande, fini, idUtilisateur) VALUE (:date,'N',:idUtilisateur)");
-		$creationCommande->bindValue(':idUtilisateur',$ligneUtilisateur->id  ,PDO::PARAM_INT);
+		$creationCommande->bindValue(':idUtilisateur',$idUtilisateur,PDO::PARAM_INT);
 		$creationCommande->bindValue(':date',date("Y-m-j") ,PDO::PARAM_STR);
 		$creationCommande->execute();
 		
-		$laNouvelleCommande = $cnx->prepare("SELECT * FROM commande, utilisateur AND commande.idUtilisateur = :idUtilisateur AND fini LIKE 'N'");
-		$laNouvelleCommande->bindValue(':idUtilisateur',$ligneUtilisateur->id,PDO::PARAM_INT);
+		$laNouvelleCommande = $cnx->prepare("SELECT * FROM commande, utilisateur WHERE commande.idUtilisateur = :idUtilisateur AND fini LIKE 'N'");
+		$laNouvelleCommande->bindValue(':idUtilisateur',$idUtilisateur,PDO::PARAM_INT);
 		$laNouvelleCommande->execute();
 		$ligneLaNouvelleCommande = $laNouvelleCommande->fetch(PDO::FETCH_OBJ);
 		
@@ -48,13 +42,20 @@ else
 		$insertionLigne->bindValue(':idCommande',$ligneLaNouvelleCommande->id ,PDO::PARAM_INT);
 		$insertionLigne->bindValue(':quantite',$_POST['quantite']  ,PDO::PARAM_INT);
 		$insertionLigne->execute();
+		
+		header('Location: panier.php');
+		exit();
 	}
 	else{
-		$insertionLigne = $cnx->prepare("INSERT INTO ligneCommande (idProduit, idCommande, quantite) VALUE :idProduit , :idCommande , :quantite)");
+		$insertionLigne = $cnx->prepare("INSERT INTO ligneCommande (idProduit, idCommande, quantite) VALUE (:idProduit , :idCommande , :quantite)");
 		$insertionLigne->bindValue(':idProduit',$_POST['idProduit'] ,PDO::PARAM_INT);
 		$insertionLigne->bindValue(':idCommande',$commandeEnCour->id ,PDO::PARAM_INT);
-		$insertionLigne->bindValue(':quantite',$_POST['quantite']  ,PDO::PARAM_INT);
-		$insertionLigne->execute();
+		$insertionLigne->bindValue(':quantite',$_POST['quantite'] ,PDO::PARAM_INT);
+		$insertionLigne->execute();	
+		
+		// echo $_POST['idProduit'].','. $commandeEnCour->id." , ".$_POST['quantite'];
+		header('Location: panier.php');
+		exit();
 	}
 	
 }

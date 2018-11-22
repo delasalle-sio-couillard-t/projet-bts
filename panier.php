@@ -13,6 +13,9 @@
 	include_once ('include/_inc_parametres.php');
 	// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
 	include_once ('include/_inc_connexion.php');
+	
+	include ('include/Outils.php');
+	require_once('include/LigneCommande.php');
 
 ?>
 <!doctype html>
@@ -24,6 +27,19 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">	
         <script type="text/javascript" src="panier.js"></script>
 	<?php
+	
+	$mail = $_SESSION ['adrMail'];	
+	
+	$idUtilisateur = Outils::getIdUtilisateur($mail);	
+	
+	$commande = Outils::getCommandeUtilisateurEnCours($idUtilisateur); //retourne un objet
+	
+	$ligneCommande = Outils::getLigneCommandeByIdCommande($commande->id);//retourne un tableau
+	
+	foreach(LigneCommande::$tableau_LigneCommande  as $id => $LigneCommande)
+        {
+            echo $LigneCommande->id . PHP_EOL; 
+        }
 	echo'
     </head>
     <body style="background-color:#eee7e7">	
@@ -32,13 +48,27 @@
                 <table id="tableau" class="table">
                     <thead>
                         <tr>
-                            <th>Code</th>
+                            <th>Smoothie</th>
                             <th>Qte</th>
                             <th>Prix unitaire</th>
                             <th>Prix de la ligne</th>
                             <th>Supprimer</th>
                         </tr>
-                    </thead>
+                    </thead>';
+					if($commande != false){
+						foreach(LigneCommande::$tableau_LigneCommande as $LigneCommande){
+							$produit = Outils::getProduitByLigneCommande($LigneCommande->id);
+							echo '                       
+							<tr>
+								<td '.$produit->libelle.'</th>
+								<td>'.$LigneCommande->quantite.'</th>
+								<td>'.$produit->prix.' unitaire</th>
+								<td>'.$LigneCommande->quantite*$produit->prix.'</th>
+								<td><button>supprimer</button></th>
+							</tr>';
+						}
+					}
+				echo'	
                 </table>
                 <br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
                 <label id = "nbreLignes" hidden>0</label>

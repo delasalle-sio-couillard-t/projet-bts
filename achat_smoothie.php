@@ -122,7 +122,7 @@
 								<label class="col-lg-3">Identifiant</label>
 							</td>
 							<td>
-								<input type="text" name="idProduit" value="'.$idProduit.'" id = "id" style="width:120px" class="input-sm form-control" size="30" disabled></input>
+								<input type="text" name="idProduit" value="'.$idProduit.'" id = "id" style="border:none; background-color:transparent;width=130px" class="input-sm form-control" size="30"></input>
 							</td>
 						</tr>
 						<tr>
@@ -138,7 +138,7 @@
 								<label class="col-lg-3">Prix</label>
 							</td>
 							<td>
-								<input type = "text" name="prix" id = "prix" style="width:120px" class="input-sm form-control" value="'.$ligneProduit->prix.'" disabled></input>
+								<input type = "text" name="prix" id = "prix" style="border:none; background-color:transparent;with=100px" class="input-sm form-control" value="'.$ligneProduit->prix.'" disabled></input>
 							</td>
 						</tr>
 						<tr>
@@ -150,26 +150,7 @@
 						</tr>
 					</table>
 			</section>
-		</form>
-		
-			<section class="container">
-					<legend>Contenu du panier</legend>
-					<table id="tableau" class="table">
-						<thead>
-							<tr>
-								<th>Code</th>
-								<th>Qte</th>
-								<th>Prix unitaire</th>
-								<th>Prix de la ligne</th>
-								<th>Supprimer</th>
-							</tr>
-						</thead>
-					</table>
-					<br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
-					<label id = "nbreLignes" hidden>0</label><br><br>
-					<button class="btn btn-outline-dark" ><span class="glyphicon glyphicon-shopping-cart"></span> Valider la commande</button>
-			</section>
-		
+		</form>		
 	</body>';
 	
 	include('include/footer.php');

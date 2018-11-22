@@ -27,9 +27,75 @@
 // ces méthodes statiques sont appelées avec la notation suivante :
 //     Outils::methode(parametres);
 
+require_once('LigneCommande.php');
+
+class SPDO extends PDO {
+    private static $instance = null;
+    const DEFAULT_SQL_USER = 'root';
+    const DEFAULT_SQL_HOST = 'localhost';
+    const DEFAULT_SQL_PASS = '';
+    const DEFAULT_SQL_DTB = 'bdd_projet_smoothie';
+    public function __construct()
+    {
+                // on appelle le constructeur de la classe parente PDO
+        parent::__construct('mysql:dbname='.self::DEFAULT_SQL_DTB.';host='.self::DEFAULT_SQL_HOST,self::DEFAULT_SQL_USER ,self::DEFAULT_SQL_PASS);
+    }
+     
+    public static function getInstance() {
+        if(is_null(self::$instance)) {
+            self::$instance = new SPDO();
+        }
+        return self::$instance;
+    }
+}
+
 // début de la classe Outils
 class Outils
 {
+	public static function getIdUtilisateur($adrMail){				
+		$lesUtilisateurs = SPDO::getInstance()->prepare("SELECT id FROM utilisateur WHERE adrMail LIKE :mail");
+		$lesUtilisateurs->bindValue(':mail',$adrMail ,PDO::PARAM_STR);
+		$lesUtilisateurs->execute();
+		$utilisateur = $lesUtilisateurs->fetch(PDO::FETCH_OBJ);
+		
+		return $utilisateur->id;
+	}
+	
+	public static function getCommandeUtilisateurEnCours($idUtilisateur){
+		$lesCommandes = SPDO::getInstance()->prepare("SELECT * FROM commande, utilisateur WHERE commande.idUtilisateur = :idUtilisateur AND fini LIKE 'N'");
+		$lesCommandes->bindValue(':idUtilisateur',$idUtilisateur,PDO::PARAM_INT);
+		$lesCommandes->execute();
+		$commandeUtilisateur = $lesCommandes->fetch(PDO::FETCH_OBJ);
+		
+		return $commandeUtilisateur;
+	}
+	
+	public static function getProduitByLigneCommande($idLigneCommande){
+		$lesProduits = SPDO::getInstance()->prepare("SELECT * FROM produit, ligneCommande WHERE ligneCommande.id = :idLigneCommande AND ligneCommande.idProduit = produit.id");
+		$lesProduits->bindValue(':idLigneCommande',$idLigneCommande,PDO::PARAM_INT);
+		$lesProduits->execute();
+		$produit = $lesProduits->fetch(PDO::FETCH_OBJ);
+		
+		return $produit;
+	}
+	
+	public static function getLigneCommandeByIdCommande($idCommande){
+		$lesLignesCommandes = SPDO::getInstance()->prepare("SELECT * FROM ligneCommande WHERE idCommande = :idCommande");
+		$lesLignesCommandes->bindValue(':idCommande',$idCommande,PDO::PARAM_INT);
+		$lesLignesCommandes->execute();
+		$ligneCommande = $lesLignesCommandes->Fetch(PDO::FETCH_OBJ);
+		while($ligneCommande){
+			$id = $lesLignesCommandes->id;
+			$idProduit = $lesLignesCommandes->idProduit;
+			$idCommande = $lesLignesCommandes->idCommande;
+			$quantite = $lesLignesCommandes->quantite;	
+			
+			LigneCommande::addLigneCommande($id,$idProduit,$idCommande,$quantite);
+			
+			$ligneCommande->fetch();
+		}
+	}
+	
     // fournit true si $codePostalAvalider est un code postal valide (5 chiffres), false sinon
     public static function estUnCodePostalValide($codePostalAvalider)
     {	// utilisation d'une expression régulière pour vérifier un code postal :
