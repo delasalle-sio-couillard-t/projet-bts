@@ -19,34 +19,33 @@ if(isset($_SESSION['niveau'])!=true)
 else
 {
 	$mail = $_SESSION ['adrMail'];
+	echo $_POST['idProduit'];
 	
 	$idUtilisateur = $cnx->prepare("SELECT id FROM utilisateur WHERE adrMail LIKE :mail");
 	$idUtilisateur->bindValue(':mail',$mail ,PDO::PARAM_STR);
 	$idUtilisateur->execute();
-	$idUtilisateur->fetch();
+	$ligneUtilisateur = $idUtilisateur->fetch(PDO::FETCH_OBJ);
 	
-	$lesCommandesUtilisateur = $cnx->prepare("SELECT * FROM commande, utilisateur 
-								AND commande.idUtilisateur = :idUtilisateur
-								AND fini LIKE 'N'");
-	$lesCommandesUtilisateur->bindValue(':idUtilisateur',$idUtilisateur ,PDO::PARAM_INT);
+	$lesCommandesUtilisateur = $cnx->prepare("SELECT * FROM commande, utilisateur AND commande.idUtilisateur = :idUtilisateur AND fini LIKE 'N'");
+	$lesCommandesUtilisateur->bindValue(':idUtilisateur',$ligneUtilisateur->id ,PDO::PARAM_INT);
 	$lesCommandesUtilisateur->execute();
 	$commandeEnCour = $lesCommandesUtilisateur->fetch(PDO::FETCH_OBJ);
 	
-	if($commandeEnCour==false){
+	if($commandeEnCour==false)
+	{
 		$creationCommande = $cnx->prepare("INSERT INTO commande (dateCommande, fini, idUtilisateur) VALUE (:date,'N',:idUtilisateur)");
-		$creationCommande->bindValue(':idUtilisateur',$idUtilisateur ,PDO::PARAM_INT);
-		$creationCommande->bindValue(':idUtilisateur',date("Y-m-j") ,PDO::PARAM_STR);
+		$creationCommande->bindValue(':idUtilisateur',$ligneUtilisateur->id  ,PDO::PARAM_INT);
+		$creationCommande->bindValue(':date',date("Y-m-j") ,PDO::PARAM_STR);
 		$creationCommande->execute();
-		$laNouvelleCommande = $cnx->prepare("SELECT * FROM commande, utilisateur 
-								AND commande.idUtilisateur = :idUtilisateur
-								AND fini LIKE 'N'");
-		$laNouvelleCommande->bindValue(':idUtilisateur',$idUtilisateur ,PDO::PARAM_INT);
-		$laNouvelleCommande->execute();
-		$laNouvelleCommande->fetch(PDO::FETCH_OBJ);
 		
-		$insertionLigne = $cnx->prepare("INSERT INTO ligneCommande (idProduit, idCommande, quantite) VALUE :idProduit , :idCommande , :quantite)");
-		$insertionLigne->bindValue(':idProduit',$_POST['idProduit'] ,PDO::PARAM_INT);
-		$insertionLigne->bindValue(':idCommande',$laNouvelleCommande->id ,PDO::PARAM_INT);
+		$laNouvelleCommande = $cnx->prepare("SELECT * FROM commande, utilisateur AND commande.idUtilisateur = :idUtilisateur AND fini LIKE 'N'");
+		$laNouvelleCommande->bindValue(':idUtilisateur',$ligneUtilisateur->id,PDO::PARAM_INT);
+		$laNouvelleCommande->execute();
+		$ligneLaNouvelleCommande = $laNouvelleCommande->fetch(PDO::FETCH_OBJ);
+		
+		$insertionLigne = $cnx->prepare("INSERT INTO ligneCommande (idProduit, idCommande, quantite) VALUE (:idProduit , :idCommande , :quantite)");
+		$insertionLigne->bindValue(':idProduit',$_POST['idProduit'],PDO::PARAM_INT);
+		$insertionLigne->bindValue(':idCommande',$ligneLaNouvelleCommande->id ,PDO::PARAM_INT);
 		$insertionLigne->bindValue(':quantite',$_POST['quantite']  ,PDO::PARAM_INT);
 		$insertionLigne->execute();
 	}
