@@ -110,7 +110,7 @@
 	
 	echo'
     </head>
-    <body style="background-image:url(images/pastel2); background-size: cover;">
+    <body style="background-color:#eee7e7">
 		<section class="container">
 				<legend>Gestion du panier</legend>
 				
@@ -150,23 +150,25 @@
 				</table>
 		</section>
 		
-		<section class="container">
-                <legend>Contenu du panier</legend>
-                <table id="tableau" class="table">
-                    <thead>
-                        <tr>
-                            <th>Code</th>
-                            <th>Qte</th>
-                            <th>Prix unitaire</th>
-                            <th>Prix de la ligne</th>
-                            <th>Supprimer</th>
-                        </tr>
-                    </thead>
-                </table>
-                <br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
-                <label id = "nbreLignes" hidden>0</label><br><br>
-				<button class="btn btn-outline-dark" ><span class="glyphicon glyphicon-shopping-cart"></span> Valider la commande</button>
-        </section>
+		<form method="post" action="action_achat.php">
+			<section class="container">
+					<legend>Contenu du panier</legend>
+					<table id="tableau" class="table">
+						<thead>
+							<tr>
+								<th>Code</th>
+								<th>Qte</th>
+								<th>Prix unitaire</th>
+								<th>Prix de la ligne</th>
+								<th>Supprimer</th>
+							</tr>
+						</thead>
+					</table>
+					<br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
+					<label id = "nbreLignes" hidden>0</label><br><br>
+					<button class="btn btn-outline-dark" ><span class="glyphicon glyphicon-shopping-cart"></span> Valider la commande</button>
+			</section>
+		</form>
 	</body>';
 	
 	include('include/footer.php');
