@@ -24,7 +24,7 @@
 							<a class="nav-link" href="connexion.php">Connexion</a>
 						</li>';
 				}
-				else
+				else 
 				{
 					echo 	'<li class="nav-item">
 								<a class="nav-link" href="panier.php">Panier</a>
