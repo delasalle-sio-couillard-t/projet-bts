@@ -37,8 +37,7 @@
 							<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
 						</li>';
 				}
-			?>
-			<?php
+				
 				if(isset($_SESSION['niveau']))
 				{
 					if($_SESSION['niveau']=='admin')
