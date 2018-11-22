@@ -122,7 +122,7 @@
 								<label class="col-lg-3">Identifiant</label>
 							</td>
 							<td>
-								<input type="text" value="'.$idProduit.'" id = "id" style="width:120px" class="input-sm form-control" size="30" disabled></input>
+								<input type="text" name="idProduit" value="'.$idProduit.'" id = "id" style="width:120px" class="input-sm form-control" size="30" disabled></input>
 							</td>
 						</tr>
 						<tr>
@@ -130,7 +130,7 @@
 								<label class="col-lg-3" >Quantité</label>
 							</td>
 							<td>
-								<input type = "number" min="1" id = "qte" style="width:120px" value="1" class="input-sm form-control" OnChange= "change()" ></input>
+								<input type = "number" name="quantite" min="1" id = "qte" style="width:120px" value="1" class="input-sm form-control" OnChange= "change()" ></input>
 							</td>
 						</tr>
 						<tr>
@@ -138,7 +138,7 @@
 								<label class="col-lg-3">Prix</label>
 							</td>
 							<td>
-								<input type = "text" id = "prix" style="width:120px" class="input-sm form-control" value="'.$ligneProduit->prix.'" disabled></input>
+								<input type = "text" name="prix" id = "prix" style="width:120px" class="input-sm form-control" value="'.$ligneProduit->prix.'" disabled></input>
 							</td>
 						</tr>
 						<tr>
