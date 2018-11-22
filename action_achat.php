@@ -32,8 +32,8 @@ else
 	if($commandeEnCour==false){
 		$creationCommande = $cnx->prepare("INSERT INTO commande (dateCommande, finiO/N, idUtilisateur) VALUE (:date,'N',:idUtilisateur)");
 		$creationCommande->bindValue(':idUtilisateur ',$idUtilisateur ,PDO::PARAM_INT);
+		$creationCommande->bindValue(':idUtilisateur ',date("Y-m-j") ,PDO::PARAM_STR);
 		$creationCommande->execute();
-		
 		$laNouvelleCommande = $cnx->prepare("SELECT * FROM commande, utilisateur 
 								AND commande.idUtilisateur = :idUtilisateur
 								AND finiO/N LIKE 'N'");
