@@ -19,8 +19,9 @@ if(isset($_SESSION['niveau'])!=true)
 else
 {
 	$mail = $_SESSION ['adrMail'];
+	
 	$idUtilisateur = $cnx->prepare("SELECT id FROM utilisateur WHERE adrMail LIKE :mail");
-	$idUtilisateur->bindValue(':mail ',$mail ,PDO::PARAM_STR);
+	$idUtilisateur->bindValue(':mail',$mail ,PDO::PARAM_STR);
 	$idUtilisateur->execute();
 	$idUtilisateur->fetch();
 	
