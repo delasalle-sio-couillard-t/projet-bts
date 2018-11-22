@@ -8,7 +8,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image:url(images/testBanniere); background-size:cover;">
-	<a class="navbar-brand" href="accueil.php">
+	<a class="navbar-brand" href="index.php">
 		<img src="images/logo.png" width="64" height="48" alt="">
 		Râ'Smoothie
 	</a>
@@ -16,10 +16,10 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
+		
+			</li><ul class="navbar-nav mr-auto">
 			<li class="nav-item">
 				<a class="nav-link" href="">Smoothie</a>
-			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="panier.php">Panier</a>
 			</li>
