@@ -7,7 +7,7 @@
 <link href="styles/style.css" rel="stylesheet" type="text/css" />
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image:url(images/testBanniere); background-size:cover;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image:url(images/banniere); background-size:cover;">
 	<a class="navbar-brand" href="index.php">
 		<img src="images/logo.png" width="64" height="48" alt="">
 		Râ'Smoothie
