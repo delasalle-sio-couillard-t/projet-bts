@@ -17,7 +17,8 @@ header/*bandeau haut*/
     right: 0px;
     top: 0px;
     height: 111px;
-    background-color: rgb(236,138,1);
+    background-image: url(../Images/banniere.jpg);
+	background-size: cover;
     /* line-height:111px; */
 }
 
