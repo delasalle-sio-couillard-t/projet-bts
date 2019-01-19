@@ -50,8 +50,8 @@
 								echo 	'<td>
 											<p>
 												<center>
-													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br>'.
-													$ligneProduit->libelle.													
+													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br></br>'.
+													utf8_encode($ligneProduit->libelle).													
 												'</center>
 											</p>';	
 										
@@ -59,9 +59,9 @@
 											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
 												'<div class="card card-body" style="background-color:#FEF7FB">
 													<p>'.
-														$ligneProduit->libelle.'</br>'.
-														$ligneProduit->prix.'</br>'.
-														$ligneProduit->description.'</br>'.
+													    utf8_encode($ligneProduit->libelle).'</br>'.
+													    utf8_encode($ligneProduit->prix).'</br>'.
+													    utf8_encode($ligneProduit->description).'</br>'.
 														'<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
 													</p>
 												</div>
