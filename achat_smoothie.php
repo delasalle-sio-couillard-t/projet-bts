@@ -51,7 +51,8 @@
 								<label class="col-lg-3">Smoothie</label>
 							</td>
 							<td>
-								<input type="text" name="idProduit" value="'.$ligneProduit->libelle.'" id = "id" style="border:none; background-color:transparent;width=130px" class="input-sm form-control" size="30"></input>
+								'.utf8_encode($ligneProduit->libelle).'
+								<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'" id = "id" style="border:none; background-color:transparent;width=130px" class="input-sm form-control" size="30"></input>
 							</td>
 						</tr>
 						<tr>

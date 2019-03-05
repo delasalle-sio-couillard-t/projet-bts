@@ -27,8 +27,11 @@
 				</h2>
 			</center>
 		</div>
+		<div id="alert">
+			
+		</div>
 		<!-- Création pour un smoothie -->
-		<form method="post" action="achat_smoothie.php">
+		
 			<div class="container">
 				<center>
 					<table  class="table">
@@ -55,18 +58,20 @@
 												'</center>
 											</p>';	
 										
-								echo'	<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
-											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
-												'<div class="card card-body" style="background-color:#FEF7FB">
-													<p>'.
-													    utf8_encode($ligneProduit->libelle).'</br>'.
-													    utf8_encode($ligneProduit->prix).'</br>'.
-													    utf8_encode($ligneProduit->description).'</br>'.
-														'<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
-													</p>
+								echo'	<form method="post" action="achat_smoothie.php">
+											<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
+												<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
+													'<div class="card card-body" style="background-color:#FEF7FB">
+														<p>'.
+															utf8_encode($ligneProduit->libelle).'</br>'.
+															utf8_encode($ligneProduit->prix).'</br>'.
+															utf8_encode($ligneProduit->description).'</br>'.
+															'<button class="btn btn-outline-dark btn-sm" type="submit" onclick="afficherNotif()">Ajouter au panier</button>
+														</p>
+													</div>
 												</div>
-											</div>
-										</td>';		
+											</td>
+											</form>';		
 								
 								if($compteur == 4)
 								{
@@ -80,7 +85,24 @@
 					</table>
 				</center>
 			</div>
-		</form>
 		<?php include('include/footer.php');?>
+		
+		<script>
+			function afficherNotif(){
+				var msg;
+				msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+				msg +=	"<strong>Holy guacamole!</strong> You should check in on some of those fields below.";
+				msg +=	"<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
+				msg +=		"<span aria-hidden='true'>&times;</span>";
+				msg +=	"</button>";
+				msg += "</div>";
+				document.getElementById("alert").innerHTML = msg;
+			}
+		</script>
+		
 	</body>
 </html>
+
+
+
+

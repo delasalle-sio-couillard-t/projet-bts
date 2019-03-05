@@ -83,16 +83,17 @@ class Outils
 		$lesLignesCommandes = SPDO::getInstance()->prepare("SELECT * FROM ligneCommande WHERE idCommande = :idCommande");
 		$lesLignesCommandes->bindValue(':idCommande',$idCommande,PDO::PARAM_INT);
 		$lesLignesCommandes->execute();
-		$ligneCommande = $lesLignesCommandes->Fetch(PDO::FETCH_OBJ);
+		$ligneCommande = $lesLignesCommandes->fetch(PDO::FETCH_OBJ);
 		while($ligneCommande){
-			$id = $lesLignesCommandes->id;
-			$idProduit = $lesLignesCommandes->idProduit;
-			$idCommande = $lesLignesCommandes->idCommande;
-			$quantite = $lesLignesCommandes->quantite;	
+			$id = $ligneCommande->id;
+			$idProduit = $ligneCommande->idProduit;
+			$idCommande = $ligneCommande->idCommande;
+			$quantite = $ligneCommande->quantite;	
 			
-			LigneCommande::addLigneCommande($id,$idProduit,$idCommande,$quantite);
+			//function dev ou pas ? 
+			//LigneCommande::addLigneCommande($id,$idProduit,$idCommande,$quantite);
 			
-			$ligneCommande->fetch();
+			$ligneCommande = $lesLignesCommandes->fetch(PDO::FETCH_OBJ);
 		}
 	}
 	
