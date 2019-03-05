@@ -1,0 +1,5 @@
+TO DO LIST :
+(Ajouter ici ce qu'il faut faire)
+-ajouter la commande au panier (commande dans bdd ok)
+-finaliser la commande
+
