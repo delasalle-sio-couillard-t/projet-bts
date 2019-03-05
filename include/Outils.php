@@ -90,7 +90,7 @@ class Outils
 			$idCommande = $ligneCommande->idCommande;
 			$quantite = $ligneCommande->quantite;	
 			
-			//function dev ou pas ? 
+			//function deja dev ou pas ? 
 			//LigneCommande::addLigneCommande($id,$idProduit,$idCommande,$quantite);
 			
 			$ligneCommande = $lesLignesCommandes->fetch(PDO::FETCH_OBJ);
