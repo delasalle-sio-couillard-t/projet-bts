@@ -34,7 +34,7 @@
 						</h3>
 						<div id="erreurCo">
 							Merci de bien vouloir renseigner les champs </br>
-							<a href="Index.php"><u>Retour</u></a>
+							<a href="connexion.php"><u>Retour</u></a>
 						</div>
 					</div>
 		<?php
@@ -63,7 +63,7 @@
 							</h3>
 							<div id='erreurCo'>
 								<p>Vous n'êtes pas enregistré, veuillez contacter l'administrateur ! </p>
-								<a href='Index.php'><u>Retour</u></a>
+								<a href='connexion.php'><u>Retour</u></a>
 							</div>
 						</div>
 		<?php
@@ -101,7 +101,7 @@
 								<h3>Erreur de connexion</h3>
 								<div id="erreurCo">
 									Erreur de connexion, informations erronées ! </br>							
-									<a href="index.php"><u>Retour</u></a>
+									<a href="connexion.php"><u>Retour</u></a>
 								</div>
 							</div>
 		<?php
@@ -122,32 +122,34 @@
 			{
 			/* affichage du formulaire de saisie lors de la 1ère exécution */
 		?>
-				<div id="connexion">
-					<h3>
-						Connexion
-					</h3>
-					<div id="formConnexion">
+				<div class="login-container">
+					<div class="d-flex justify-content-center">
 						<!-- rappel de cette page lors du clic sur le bouton Valider (2ème exécution) -->
-						<form action="connexion.php?action=connexion" method="post">
-						<table>
-							<tr>
-								<td>Adresse mail : </td> <td> <input type="text" name="adrMail"></td>
-							</tr>
-							<tr>
-								<td>Mot de passe : </td> <td> <input type="password" name="mdp"></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td><input type="submit" value="Valider"></td>
-							</tr>
-						</table>
+						<form action="connexion.php?action=connexion" method="post" class="login-form-1">
+							<h3>
+								Connexion
+							</h3>
+							<table>
+								<tr>
+									<td>Adresse mail : </td>
+								</tr>
+								<tr>
+									<td> <input type="text" name="adrMail"></td>
+								</tr>
+								<tr>
+									<td>Mot de passe : </td>								
+								</tr>
+								<tr>
+									<td> <input type="password" name="mdp"></td>
+								</tr>
+							</table>
+							<br>
+							<input type="submit" value="Valider" class="btnSubmit">
+							<br>
+							<br>
+							<a href="forgetMdp.php" ><u>Mot de passe oublié ?</u></a>
 						</form>
-					</div>
-					
-					<div id="utile">
-						<!-- appel de la page forgetMdp.php lors du clic sur le bouton -->
-						<a href="forgetMdp.php" ><u>Mot de passe oublié</u></a> | 
-					</div>
+					</div>				
 				</div>
 		<?php
 			}

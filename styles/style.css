@@ -94,41 +94,6 @@ body
 }
 
 
-
-
-/* Positionnement du formulaire */
-#connexion
-{
-	margin:0 auto;
-	background:#DEDEDE;
-	width:630px;
-	box-shadow: 1px 1px 12px #555;	
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-#connexion h3
-{
-	padding:3px;
-	padding-left:10px;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9D9D9D), color-stop(1, #777777) );
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-#connexion p
-{
-	padding-left:10px;
-}
-
 #utile a
 {
 	color:black;
@@ -147,12 +112,6 @@ body
 	padding-bottom:10px;
 }
 
-#formConnexion
-{
-	margin:0 auto;
-	width:300px;
-	background:#DEDEDE;
-}
 
 /* Mot de passe oubli� */
 
@@ -286,5 +245,126 @@ body
  .msg p{
 	color:red;
  }
+ 
+ .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+.login-container{
+    margin: auto;
+    width: 60%;
+    padding: 5%;
+	text-align: center;
+}
+
+
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+
+.bouton_selection {
+  padding : 10px;
+}
+
+.gestion_competence {
+  width: 35%;
+  margin-left: 4%;
+  float:left;
+}
+
+.list_competence{
+  max-height: 410px;
+  overflow-y: auto;
+}
+
+.lier_competence {
+  width: 55%;
+  margin-left: 2%;
+  float: left;
+}
+.div_scrollbar{
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.div_scrollbar2{
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.button_collapse{
+  width: 20%;
+  height: 27%;
+}
+
+.div_group {
+  margin-top:20px;
+  width: 28%;
+  height : 45%;
+  margin-left: 4%;
+  float:left;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.div_group_table {
+  width: 100%;
+  float:left;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+
+
+
  
 
