@@ -29,17 +29,15 @@
 					echo 	'<li class="nav-item">
 								<a class="nav-link" href="panier.php">Panier</a>
 							</li>';
-					echo 	'<li class="nav-item">
-								<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
-							</li>';
-				}
-				
-				if(isset($_SESSION['niveau']))
-				{
+							
 					if($_SESSION['niveau']=='admin')
 					{
 						echo ('<li class="nav-item"><a class="nav-link " href="administration.php">Administration</a></li>');
 					}
+					
+					echo 	'<li class="nav-item">
+								<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
+							</li>';
 				}
 			 ?>
 		</ul>

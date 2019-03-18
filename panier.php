@@ -21,8 +21,6 @@
 <!doctype html>
 <html lang="fr">
     <head>
-		
-        <meta charset="UTF-8">
         <title>Panier HTML5 + JavaScript</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">	
         <script type="text/javascript" src="panier.js"></script>
@@ -36,7 +34,7 @@
 	
 	echo'
     </head>
-    <body style="background-color:#eee7e7">	
+    <body>	
         <section class="container">
                 <legend>Contenu du panier</legend>
                 <table id="tableau" class="table">
