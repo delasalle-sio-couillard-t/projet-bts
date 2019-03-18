@@ -31,15 +31,9 @@
 	$mail = $_SESSION ['adrMail'];	
 	
 	$idUtilisateur = Outils::getIdUtilisateur($mail);	
-	
 	$commande = Outils::getCommandeUtilisateurEnCours($idUtilisateur); //retourne un objet
-	
 	$ligneCommande = Outils::getLigneCommandeByIdCommande($commande->id);//retourne un tableau
 	
-	foreach(LigneCommande::$tableau_LigneCommande  as $id => $LigneCommande)
-        {
-            echo $LigneCommande->id . PHP_EOL; 
-        }
 	echo'
     </head>
     <body style="background-color:#eee7e7">	
@@ -62,8 +56,8 @@
 							<tr>
 								<td '.$produit->libelle.'</th>
 								<td>'.$LigneCommande->quantite.'</th>
-								<td>'.$produit->prix.' unitaire</th>
-								<td>'.$LigneCommande->quantite*$produit->prix.'</th>
+								<td>'.$produit->prix.'€</th>
+								<td>'.$LigneCommande->quantite*$produit->prix.'€</th>
 								<td><button>supprimer</button></th>
 							</tr>';
 						}

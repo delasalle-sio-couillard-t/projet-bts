@@ -6,7 +6,7 @@
         <link rel="icon" type="image/png" href="../image/icone.png" />
 	</head>
 	
-		  <header>
-            <h1>Râ'Smoothie
+	<header>
+        <h1>Râ'Smoothie</h1>
         <!--entrer le nom, le prenom, le titre-->
     </header>

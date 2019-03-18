@@ -84,17 +84,21 @@ class Outils
 		$lesLignesCommandes->bindValue(':idCommande',$idCommande,PDO::PARAM_INT);
 		$lesLignesCommandes->execute();
 		$ligneCommande = $lesLignesCommandes->fetch(PDO::FETCH_OBJ);
+		
+		$tableauLignesCommandes = array();
+		
 		while($ligneCommande){
 			$id = $ligneCommande->id;
 			$idProduit = $ligneCommande->idProduit;
 			$idCommande = $ligneCommande->idCommande;
-			$quantite = $ligneCommande->quantite;	
+			$quantite = $ligneCommande->quantite;
 			
-			//function deja dev ou pas ? 
-			//LigneCommande::addLigneCommande($id,$idProduit,$idCommande,$quantite);
+			$laLigneCommande = LigneCommande::creerLigneCommande($id,$idProduit,$idCommande,$quantite);
+			array_push  ($tableauLignesCommandes, $laLigneCommande);
 			
 			$ligneCommande = $lesLignesCommandes->fetch(PDO::FETCH_OBJ);
 		}
+		return $tableauLignesCommandes;
 	}
 	
     // fournit true si $codePostalAvalider est un code postal valide (5 chiffres), false sinon
