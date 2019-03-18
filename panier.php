@@ -49,6 +49,7 @@
                             <th>Supprimer</th>
                         </tr>
                     </thead>';
+					$prixTotal = 0;
 					if($commande != false){
 						foreach(LigneCommande::$tableau_LigneCommande as $LigneCommande){
 							$produit = Outils::getProduitByLigneCommande($LigneCommande->id);
@@ -60,11 +61,12 @@
 								<td>'.$LigneCommande->quantite*$produit->prix.'€</th>
 								<td><button>supprimer</button></th>
 							</tr>';
+							$prixTotal += $LigneCommande->quantite*$produit->prix;
 						}
 					}
 				echo'	
                 </table>
-                <br><label>Prix du panier total</label> : <label id = "prixTotal"></label>
+                <br><label>Prix du panier total</label> : <label id = "prixTotal">'.$prixTotal.'€</label>
                 <label id = "nbreLignes" hidden>0</label>
         </section>
     </body>
