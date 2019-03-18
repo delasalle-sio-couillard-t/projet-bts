@@ -59,7 +59,7 @@
 								<td>'.$LigneCommande->quantite.'</th>
 								<td>'.$produit->prix.'€</th>
 								<td>'.$LigneCommande->quantite*$produit->prix.'€</th>
-								<td><button>supprimer</button></th>
+								<td><button onclick="deleteUneLignePanier('.$LigneCommande->id.')">supprimer</button></th>
 							</tr>';
 							$prixTotal += $LigneCommande->quantite*$produit->prix;
 						}
