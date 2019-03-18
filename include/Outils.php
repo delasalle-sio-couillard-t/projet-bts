@@ -100,6 +100,7 @@ class Outils
 		}
 		return $tableauLignesCommandes;
 	}
+
 	
     // fournit true si $codePostalAvalider est un code postal valide (5 chiffres), false sinon
     public static function estUnCodePostalValide($codePostalAvalider)

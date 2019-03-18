@@ -18,7 +18,7 @@
 <!DOCTYPE HTML> 
 <html>
 	<!-- Début du corps -->  
-	<body style="background-color:#eee7e7">
+	<body>
 		<!--<img src="images/licorne" width="250" height="380" style="float:right; max-width: 200%; height: auto;";>-->
 		<div class="container-fluid">
 			<center>

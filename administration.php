@@ -19,7 +19,7 @@
 <!DOCTYPE HTML> 
 <html>
 	<!-- Début du corps -->  
-	<body style="background-image:url(images/pastel2); background-size: cover;">
+	<body>
 		<!--<img src="images/licorne" width="250" height="380" style="float:right; max-width: 200%; height: auto;";>-->
 		<div class="container-fluid">
 			<center>

@@ -68,7 +68,8 @@
                 </table>
                 <br><label>Prix du panier total</label> : <label id = "prixTotal">'.$prixTotal.'€</label>
                 <label id = "nbreLignes" hidden>0</label>
-        </section>
-    </body>
+        </section>';
+		include('include/footer.php');
+    echo '</body>
 </html>';
 ?>
