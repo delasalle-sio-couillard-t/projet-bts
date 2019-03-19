@@ -18,7 +18,7 @@
 <!DOCTYPE HTML> 
 <html>
 	<!-- Début du corps -->  
-	<body style="background-color:#eee7e7">
+	<body>
 		<?php			
 			/* Vérification de la variable action qui ne contient rien lors de la 1ère exécution */
 			if (isset($_GET['action']) && $_GET['action']=="connexion")

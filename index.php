@@ -19,19 +19,18 @@
 <html>
 	<!-- Début du corps -->  
 	<body>
-		<!--<img src="images/licorne" width="250" height="380" style="float:right; max-width: 200%; height: auto;";>-->
-		<div class="container-fluid">
-			<center>
-				<h2>
-					Nos Smoothies
-				</h2>
-			</center>
-		</div>
-		<div id="alert">
+		<div id="tout">
+			<div class="container-fluid">
+				<center>
+					<h2>
+						Nos Smoothies
+					</h2>
+				</center>
+			</div>
+			<div id="alert">
 			
-		</div>
-		<!-- Création pour un smoothie -->
-		
+			</div>
+			<!-- Création pour un smoothie -->
 			<div class="container">
 				<center>
 					<table  class="table">
@@ -61,7 +60,7 @@
 								echo'	<form method="post" action="achat_smoothie.php">
 											<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
 												<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
-													'<div class="card card-body" style="background-color:#FEF7FB">
+													'<div class="card card-body">
 														<p>'.
 															utf8_encode($ligneProduit->libelle).'</br>'.
 															utf8_encode($ligneProduit->prix).'</br>'.
@@ -85,6 +84,7 @@
 					</table>
 				</center>
 			</div>
+		</div>
 		<?php include('include/footer.php');?>
 		
 		<script>

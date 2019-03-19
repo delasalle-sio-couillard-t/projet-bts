@@ -16,7 +16,7 @@ header/*bandeau haut*/
     left: 0px;
     right: 0px;
     top: 0px;
-    height: 111px;
+    height: 70px;
     background-image: url(../Images/banniere.jpg);
 	background-size: cover;
     /* line-height:111px; */
@@ -24,9 +24,7 @@ header/*bandeau haut*/
 
 footer {
     justify-content: center;
-    background-image: url(../Images/footer);
 	background-size: cover;
-    color: #fff;
 	position: absolute; 
 	bottom: 0; 
 	left: 0; 
@@ -38,10 +36,13 @@ body
 {
 	font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
 	font-size:13px;
-	background-image:url(../images/pastel2); 
+	background-image:url(../images/showme); 
 	background-size: cover;
 }
-
+#tout
+{
+	margin-top: 100px;
+}
 /* Menu de la page inclu dans les diff�rentes pages de gestion de compte */
 #menu ul {	
 	padding:0;
