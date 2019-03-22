@@ -58,11 +58,27 @@
 											<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
 												<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
 													'<div class="card card-body" id="card_smoothie">
-														<p>'.
-															utf8_encode($ligneProduit->libelle).'</br>'.
-															utf8_encode($ligneProduit->prix).'</br>'.
-															utf8_encode($ligneProduit->description).'</br>'.
-															'<button class="btn btn-outline-dark btn-sm" type="submit" onclick="afficherNotif()">Ajouter au panier</button>
+														<p>
+															<table>
+																<tr>
+																	<td>
+																		Description :
+																	</td>
+																	<td>'.
+																		utf8_encode($ligneProduit->description).
+																	'</td>
+																</tr>
+																<tr>
+																	<td>'.
+																		'Prix '.utf8_encode($ligneProduit->prix).' €
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
+																	</td>
+																</tr>
+															</table>
 														</p>
 													</div>
 												</div>
