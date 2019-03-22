@@ -27,9 +27,6 @@
 					</h2>
 				</center>
 			</div>
-			<div id="alert">
-			
-			</div>
 			<!-- Création pour un smoothie -->
 			<div class="container">
 				<center>
@@ -85,21 +82,7 @@
 				</center>
 			</div>
 		</div>
-		<?php include('include/footer.php');?>
-		
-		<script>
-			function afficherNotif(){
-				var msg;
-				msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-				msg +=	"<strong>Holy guacamole!</strong> You should check in on some of those fields below.";
-				msg +=	"<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
-				msg +=		"<span aria-hidden='true'>&times;</span>";
-				msg +=	"</button>";
-				msg += "</div>";
-				document.getElementById("alert").innerHTML = msg;
-			}
-		</script>
-		
+		<?php include('include/footer.php');?>		
 	</body>
 </html>
 
