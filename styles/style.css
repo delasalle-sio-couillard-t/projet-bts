@@ -39,6 +39,7 @@ body
 	background-image:url(../images/showme); 
 	background-size: cover;
 }
+
 #tout
 {
 	margin-top: 100px;
@@ -364,7 +365,10 @@ body
   overflow-y: auto;
 }
 
-
+#card_smoothie{
+	background-color:rgba(255, 255, 255, 0.8);
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
 
 
  

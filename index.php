@@ -52,15 +52,15 @@
 								echo 	'<td>
 											<p>
 												<center>
-													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br></br>'.
+													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br></br><h4>'.
 													utf8_encode($ligneProduit->libelle).													
-												'</center>
+												'</h4></center>
 											</p>';	
 										
 								echo'	<form method="post" action="achat_smoothie.php">
 											<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
 												<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
-													'<div class="card card-body">
+													'<div class="card card-body" id="card_smoothie">
 														<p>'.
 															utf8_encode($ligneProduit->libelle).'</br>'.
 															utf8_encode($ligneProduit->prix).'</br>'.
