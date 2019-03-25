@@ -1,9 +1,3 @@
-/*
- * Feuille de style css pour le fichier Accueil.php
- */
-
-/* Police de caract�re du site */
-
 html
 {
     font-family: "Sierra Madre";
@@ -17,9 +11,6 @@ header/*bandeau haut*/
     right: 0px;
     top: 0px;
     height: 70px;
-    background-image: url(../Images/banniere.jpg);
-	background-size: cover;
-    /* line-height:111px; */
 }
 
 footer {
@@ -34,7 +25,6 @@ footer {
 
 body
 {
-	font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
 	font-size:13px;
 	background-image:url(../images/showme); 
 	background-size: cover;
@@ -42,251 +32,23 @@ body
 
 #tout
 {
-	margin-top: 100px;
-}
-/* Menu de la page inclu dans les diff�rentes pages de gestion de compte */
-#menu ul {	
-	padding:0;
-	margin:0px auto;
-	list-style-type:none;
-	width:630px;
- }
-#menu li {
-	display:block;
-	float:left; 
-	text-align:center;
-	width:24%;
-	list-style-type:none;
-	padding:3px;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9D9D9D), color-stop(1, #777777) );
- }
-#menu a { 
-	color:black;
-	text-align:center;
-	text-decoration:none;		
- } 
- 
-#menu li:hover
-{
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #777777), color-stop(1, #9D9D9D) );
-}
-
-#menu li:active
-{
-	color: #000;
-    background: #444;
-    background: -webkit-linear-gradient( #555, #2C2C2C);
-    background:    -moz-linear-gradient( #555, #2C2C2C);
-    background:     -ms-linear-gradient( #555, #2C2C2C);
-    background:      -o-linear-gradient( #555, #2C2C2C);
-    background:         linear-gradient( #555, #2C2C2C);
-    box-shadow: 1px 1px 10px black inset, 
-                 0 1px 0 rgba( 255, 255, 255, 0.4);
+	margin-top:50px;
+	margin: 0 auto;
 }
 
 
-/* Ent�te du site avec le titre */
-#entete
-{
-	margin:0 ;
-	background:white;
-	width:400px;
-	text-align:center;
-	font-size:42px
+#card_smoothie{
+	background-color:rgba(255, 255, 255, 0.8);
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-#utile a
-{
-	color:black;
-	text-decoration:none;
-}
-
-#utile a:hover
-{
-	color:white;
-}
-
-#utile
-{
-	padding-top:25px;
-	padding-left:300px;
-	padding-bottom:10px;
-}
-
-
-/* Mot de passe oubli� */
-
-#formForgetMdp
-{
-	margin:0 auto;
-	width:51%;
-	background:#DEDEDE;
-}
-
-#formForgetMdp a
-{
-	color:black;
-	text-decoration:none;
-}
-
-#formForgetMdp a:hover
-{
-	color:white;
-}
-
-/* Page d'erreur de connexion */
-#erreurCo 
-{
-	text-align:center;
-	padding-bottom:10px;
-}
-
-#erreurCo a
-{	
-	color:black;
-	text-decoration:none;
-}
-
-#erreurCo a:hover
-{	
-	color:white;
-}
-
-
-/* Page de gestion  */
-
-#pagegestionU
-{
-	margin:0px auto;
-	width:628px;
-	box-shadow: 1px 1px 12px #555;	
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	background:#DEDEDE;
-	padding-bottom : 10px;
-}
-#pagegestionU table
-{	
-	margin-left:10px;
-	margin-top : 10px;	
-	float:left;
-}
-
-/* Page de gestion */
-
-#pagegestionD 
-{
-	margin:0px auto;
-	width:628px;
-	box-shadow: 1px 1px 12px #555;	
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	background:#DEDEDE;
-	padding-bottom : 10px;	
-}
-
-#pagegestionD form
-{
-	margin-top:15px;
-}
-#pagegestionD #btnAjouter{
-	margin-top:14px;
-}
-#pagegestionD table
-{	
-	margin-left:10px;
-	float : left;
-	margin-top:10px;
-}
-
-/* Page de modification des informations */ 
-#modifier
-{
-	margin:0px  auto;
-	box-shadow: 1px 1px 12px #555;		
-	width : 628px;
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	background:#DEDEDE;
-}
-
-#modifier form
-{
-	padding:20px;
-}
-
-/* Bouton retour pour le formulaire :
-	- mdp oubli�
-	- nous contacter
-	- inscription */
-#btnRetour{
-	float : right;
-	margin-right : 55px;
-	margin-top: 10px;	
-}
-#btnRetour a{
-	text-decoration:none;
-	color:black;
-}
-
-
-/* affichage d'un message pour l'utilisateur  */
- .msg p{
-	color:red;
- }
- 
- .autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-}
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
-}
-.autocomplete-items div:hover {
-  /*when hovering an item:*/
-  background-color: #e9e9e9;
-}
-.autocomplete-active {
-  /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
-}
-
+/*page de connexion*/
 .login-container{
     margin: auto;
     width: 60%;
     padding: 5%;
 	text-align: center;
 }
-
 
 .login-form-1{
     padding: 5%;
@@ -300,6 +62,7 @@ body
 .login-container form{
     padding: 10%;
 }
+
 .btnSubmit
 {
     width: 50%;
@@ -308,67 +71,13 @@ body
     border: none;
     cursor: pointer;
 }
+
 .login-form-1 .btnSubmit{
     font-weight: 600;
     color: #fff;
     background-color: #0062cc;
 }
-
-.bouton_selection {
-  padding : 10px;
-}
-
-.gestion_competence {
-  width: 35%;
-  margin-left: 4%;
-  float:left;
-}
-
-.list_competence{
-  max-height: 410px;
-  overflow-y: auto;
-}
-
-.lier_competence {
-  width: 55%;
-  margin-left: 2%;
-  float: left;
-}
-.div_scrollbar{
-  max-height: 150px;
-  overflow-y: auto;
-}
-
-.div_scrollbar2{
-  max-height: 250px;
-  overflow-y: auto;
-}
-
-.button_collapse{
-  width: 20%;
-  height: 27%;
-}
-
-.div_group {
-  margin-top:20px;
-  width: 100%;
-  height : 45%;
-  margin-left: 4%;
-  float:left;
-  max-height: 300px;
-  overflow-y: auto;
-}
-.div_group_table {
-  width: 100%;
-  float:left;
-  max-height: 240px;
-  overflow-y: auto;
-}
-
-#card_smoothie{
-	background-color:rgba(255, 255, 255, 0.8);
-	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
+/*fin page de connexion*/
 
 
  

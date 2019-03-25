@@ -29,73 +29,71 @@
 			</div>
 			<!-- Création pour un smoothie -->
 			<div class="container">
-				<center>
-					<table  class="table">
-						<?php
-							$reqProduit = $cnx->prepare("SELECT * FROM produit");
-							$reqProduit->execute();
-							$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-							
-							$compteur = 0;
-											
-							while($ligneProduit)
-							{		
-								$compteur = $compteur + 1;
-								
-								if($compteur == 1)
-								{
-									echo '<tr>';
-								}
-								echo 	'<td>
-											<p>
-												<center>
-													<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br></br><h4>'.
-													utf8_encode($ligneProduit->libelle).													
-												'</h4></center>
-											</p>';	
+				<table class="table">
+					<?php
+						$reqProduit = $cnx->prepare("SELECT * FROM produit");
+						$reqProduit->execute();
+						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+						
+						$compteur = 0;
 										
-								echo'	<form method="post" action="achat_smoothie.php">
-											<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
-												<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
-													'<div class="card card-body" id="card_smoothie">
-														<p>
-															<table>
-																<tr>
-																	<td>
-																		Description :
-																	</td>
-																	<td>'.
-																		utf8_encode($ligneProduit->description).
-																	'</td>
-																</tr>
-																<tr>
-																	<td>'.
-																		'Prix '.utf8_encode($ligneProduit->prix).' €
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
-																	</td>
-																</tr>
-															</table>
-														</p>
-													</div>
-												</div>
-											</td>
-											</form>';		
-								
-								if($compteur == 4)
-								{
-									echo '</tr>';
-									$compteur = 0;
-								}
-														
-								$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+						while($ligneProduit)
+						{		
+							$compteur = $compteur + 1;
+							
+							if($compteur == 1)
+							{
+								echo '<tr>';
 							}
-						?>				
-					</table>
-				</center>
+							echo 	'<td>
+										<div>
+											<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br></br>
+											<h4>'.
+												utf8_encode($ligneProduit->libelle).													
+											'</h4>
+										</div>';	
+									
+							echo'	<form method="post" action="achat_smoothie.php">
+										<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
+											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
+												'<div class="card card-body" id="card_smoothie">
+													<p>
+														<table>
+															<tr>
+																<td>
+																	Description :
+																</td>
+																<td>'.
+																	utf8_encode($ligneProduit->description).
+																'</td>
+															</tr>
+															<tr>
+																<td>'.
+																	'Prix '.utf8_encode($ligneProduit->prix).' €
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<button class="btn btn-outline-dark btn-sm" type="submit">Ajouter au panier</button>
+																</td>
+															</tr>
+														</table>
+													</p>
+												</div>
+											</div>
+										</form>
+									</td>';		
+							
+							if($compteur == 4)
+							{
+								echo '</tr>';
+								$compteur = 0;
+							}
+													
+							$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+						}
+					?>				
+				</table>
 			</div>
 		</div>
 		<?php include('include/footer.php');?>		

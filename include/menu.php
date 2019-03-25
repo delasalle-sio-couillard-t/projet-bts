@@ -16,16 +16,9 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">		
-		</li><ul class="navbar-nav mr-auto">
+		<ul class="navbar-nav mr-auto">
 			<?php
-				if(isset($_SESSION['niveau'])!=true)
-				{
-						echo '<li class="nav-item">
-							<a class="nav-link" href="connexion.php">Connexion</a>
-						</li>';
-				}
-				else 
-				{
+				if(isset($_SESSION['niveau']) == true){
 					echo 	'<li class="nav-item">
 								<a class="nav-link" href="panier.php">Panier</a>
 							</li>';
@@ -34,17 +27,23 @@
 					{
 						echo ('<li class="nav-item"><a class="nav-link " href="administration.php">Administration</a></li>');
 					}
-					
+				}
+			 ?>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<?php
+				if(isset($_SESSION['niveau'])!=true)
+				{
+						echo '<li class="nav-item">
+								<a class="nav-link" href="connexion.php">Connexion</a>
+							</li>';
+				}
+				else{
 					echo 	'<li class="nav-item">
 								<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
 							</li>';
 				}
-			 ?>
+			?>			
 		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Ingredients, nom..." aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher
-			</button>
-		</form>
 	</div>
 </nav>
