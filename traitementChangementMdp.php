@@ -16,14 +16,16 @@
 
 ?>
 
-<?php
-	$mdp = $_SESSION['password'];
+<?php	
 	$adrMail = $_SESSION['adrMail'];
 	
+	$reqUtilisateur = $cnx->prepare("SELECT mdp FROM utilisateur WHERE adrMail = :adrMail");
+	$reqUtilisateur->bindValue(':adrMail',$adrMail,PDO::PARAM_STR);
+	$reqUtilisateur->execute();
+	$ligneUtilisateur = $reqUtilisateur->fetch(PDO::FETCH_OBJ);
+	
+	$mdp = $ligneUtilisateur->mdp;
 
-	
-	
-	
 	if ( empty ($_POST ["mdpActuel"]) == true)
 		$mdpActuel = "";  
 	else 
@@ -61,11 +63,6 @@
 			echo "Le mot de passe a bien été modifié";
 			
 		}
-    
-
-	}
-	echo ' <br/> <a href="accueil.php" target="_blank"> <input type="button" value="Retour à l accueil">  </a>'
-
-			
+	}	
 ?>
  
