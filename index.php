@@ -14,20 +14,17 @@
 	// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
 	include_once ('include/_inc_connexion.php');
 
-?>
-<!DOCTYPE HTML> 
+?> 
 <html>
 	<!-- Début du corps -->  
 	<body>
 		<div id="tout">
-			<div class="container-fluid">
-				<center>
-					<h2>
-						Nos Smoothies
-					</h2>
-				</center>
+			<div class="d-flex justify-content-center">
+				<h2>
+					Nos Smoothies
+				</h2>
 			</div>
-			<!-- Création pour un smoothie -->
+			<!-- Création pour les smoothies -->
 			<div class="container">
 				<table class="table">
 					<?php

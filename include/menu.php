@@ -21,6 +21,16 @@
 				if(isset($_SESSION['niveau']) == true){
 					echo 	'<li class="nav-item">
 								<a class="nav-link" href="panier.php">Panier</a>
+							</li>
+							
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Gestion de son compte
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								  <a class="dropdown-item" href="infos_utilisateurs.php">Informations personnelles</a>
+								  <a class="dropdown-item" href="securite.php">Sécurité</a>
+								</div>
 							</li>';
 							
 					if($_SESSION['niveau']=='admin')
