@@ -34,13 +34,8 @@ body
 	margin-top:70px;
 }
 
-.button{
-	border-radius:12px 0 12px 0;
-	background: #d34836;
-	border:none;
-	color:#fff;
-	font:bold 12px Verdana;
-	padding:6px 0 6px 0;
+.button:hover{
+	cursor:pointer;
 }
 
 
