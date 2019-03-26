@@ -43,12 +43,12 @@
 								echo '<tr>';
 							}
 							echo 	'<td>
-										<div>
-											<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'"></br></br>
+										<label for="'.$ligneProduit->id.'">
+											<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'" onclick=getFocus("collapse'.$ligneProduit->id.'")></br></br>
 											<h4>'.
 												utf8_encode($ligneProduit->libelle).													
 											'</h4>
-										</div>';	
+										</label>';	
 									
 							echo'	<form method="post" action="achat_smoothie.php">
 										<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
@@ -93,7 +93,14 @@
 				</table>
 			</div>
 		</div>
-		<?php include('include/footer.php');?>		
+		<?php include('include/footer.php');?>
+		
+		<script>
+			function getFocus(id){           
+				document.getElementById(id).focus();
+				console.log(id);
+			}
+		</script>
 	</body>
 </html>
 
