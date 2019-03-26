@@ -53,11 +53,11 @@
 							$produit = Outils::getProduitByLigneCommande($LigneCommande->id);
 							echo '                       
 							<tr>
-								<td '.$produit->libelle.'</th>
-								<td>'.$LigneCommande->quantite.'</th>
-								<td>'.$produit->prix.'€</th>
-								<td>'.$LigneCommande->quantite*$produit->prix.'€</th>
-								<td><button onclick="deleteUneLignePanier('.$LigneCommande->id.')">supprimer</button></th>
+								<td> '.$produit->libelle.'</td>
+								<td>'.$LigneCommande->quantite.'</td>
+								<td>'.$produit->prix.'€</td>
+								<td>'.$LigneCommande->quantite*$produit->prix.'€</td>
+								<td><img src="Images/icons8-delete-50.png" onclick="deleteUneLignePanier('.$LigneCommande->id.')"></td>
 							</tr>';
 							$prixTotal += $LigneCommande->quantite*$produit->prix;
 						}

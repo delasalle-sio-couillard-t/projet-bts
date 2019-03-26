@@ -9,7 +9,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light">
 	<a class="navbar-brand" href="index.php">
-		<img src="images/rick.jpg" width="64" height="48" alt="">
+		<img src="images/logo (2).png" width="64" height="48" alt="">
 		Râ'Smoothie
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

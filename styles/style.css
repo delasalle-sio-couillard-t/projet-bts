@@ -35,6 +35,15 @@ body
 	margin: 0 auto;
 }
 
+.button{
+	border-radius:12px 0 12px 0;
+	background: #d34836;
+	border:none;
+	color:#fff;
+	font:bold 12px Verdana;
+	padding:6px 0 6px 0;
+}
+
 
 #card_smoothie{
 	background-color:rgba(255, 255, 255, 0.8);
