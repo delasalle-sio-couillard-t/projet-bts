@@ -21,7 +21,7 @@
 		<div id="tout">
 			<div class="d-flex justify-content-center">
 				<h2>
-					Nos Smoothies
+					<img src="images/titre1.png">
 				</h2>
 			</div>
 			<!-- Création pour les smoothies -->
