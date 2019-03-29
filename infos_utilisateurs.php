@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="container">
-			<form method="post" action="">
+			<form method="post" action="test.php">
 				<?php
 					 $idUtilisateur = $ligneUtilisateur->id;
 					 $mdp = $ligneUtilisateur->mdp;
@@ -54,7 +54,7 @@
 								<label>Nom</label>
 							</td>
 							<td>
-								<input type="text" value="'.utf8_encode($nom).'" id = "id" class="input-sm form-control" disabled></input>
+								<input type="text" value="'.utf8_encode($nom).'" id = "id" class="input-sm form-control"></input>
 							</td>
 						</tr>
 						<tr>
@@ -62,7 +62,7 @@
 								<label>Prénom</label>
 							</td>
 							<td>
-								<input type="text" value="'.utf8_encode($prenom).'" id = "id" class="input-sm form-control" disabled></input>
+								<input type="text" value="'.utf8_encode($prenom).'" id = "id" class="input-sm form-control"></input>
 							</td>
 						</tr>
 						<tr>
@@ -70,7 +70,7 @@
 								<label>Rue</label>
 							</td>
 							<td>
-								<input type="text" value="'.utf8_encode($rue).'" id = "id" class="input-sm form-control" disabled ></input>
+								<input type="text" value="'.utf8_encode($rue).'" id = "id" class="input-sm form-control"></input>
 							</td>
 						</tr>
 						<tr>
@@ -78,7 +78,7 @@
 								<label>Code Postal</label>
 							</td>
 							<td>
-								<input type="text" value="'.$cp.'" id = "id" class="input-sm form-control" disabled ></input>
+								<input type="text" value="'.$cp.'" id = "id" class="input-sm form-control"></input>
 							</td>
 						</tr>
 						<tr>
@@ -86,7 +86,7 @@
 								<label>Ville</label>
 							</td>
 							<td>
-								<input type="text" value="'.utf8_encode($ville).'" id = "id" class="input-sm form-control" disabled ></input>
+								<input type="text" value="'.utf8_encode($ville).'" id = "id" class="input-sm form-control"></input>
 							</td>
 						</tr>
 						<tr>
@@ -94,7 +94,7 @@
 								<label>Téléphone Fixe</label>
 							</td>
 							<td>
-								<input type="text" value="'.$telFixe.'" id = "id" class="input-sm form-control" disabled ></input>
+								<input type="text" value="'.$telFixe.'" id = "id" class="input-sm form-control"></input>
 							</td>
 						</tr>
 						<tr>
@@ -102,13 +102,14 @@
 								<label>Téléphone Portable</label>
 							</td>
 							<td>
-								<input type="text" value="'.$telPort.'" id = "id" class="input-sm form-control" disabled ></input>
+								<input type="text" value="'.$telPort.'" id = "id" class="input-sm form-control"></input>
 							</td>
 						</tr>
 						<tr>
 							<td></td>
 							<td>
-								<button class="btn btn-dark btn-sm" onclick="formModif();">Modifier</button>
+								<button class="btn btn-success btn-sm" type="submit">Modifier vos informations</button>
+								<button class="btn btn-danger btn-sm" type="button">Réinitialiser vos informations</button>
 							</td>
 						</tr>
 					</table>';
@@ -117,26 +118,4 @@
 		</div>
 		<?php include('include/footer.php');?>		
 	</body>
-	<script>
-		//modification du tableau pour permettre la modification d'une compétence
-        function formModif(){
-            var form = "";
-			
-            document.getElementById("body_competence").innerHTML = form;           
-        }
-        //annulation de la modification précedente du tableau 
-        function annulModif(){
-            var form = "";
-            var name_competence = "";
-            
-            for (let competence of arrCompetence) {
-                form += "<tr id='modif" + competence.id + "'>";
-                form +=   "<td>"+competence.name+"</td>";
-                form +=   "<td><button id='" + competence.id + "' type='button' class ='btn btn-outline-primary' onclick='formModif(this.id)'>Modifier</button></td>";                
-                form +=   "<td><button id='" + competence.id + "' type='button' class ='btn btn-outline-danger' onclick='deleteCompetence(this.id)'>Supprimer</button></td>";
-                form += "</tr>";
-            }
-            document.getElementById("body_competence").innerHTML = form;
-        }
-	</script>	
 </html>

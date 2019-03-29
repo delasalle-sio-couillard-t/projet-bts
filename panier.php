@@ -66,6 +66,8 @@
                 </table>
                 <br><label>Prix du panier total</label> : <label id = "prixTotal">'.$prixTotal.'€</label>
                 <label id = "nbreLignes" hidden>0</label>
+				<br>
+				<a href="index.php" class="btn btn-dark">Retour a l\'acceuil</a>
         </section>';
 		include('include/footer.php');
 	?>
@@ -78,7 +80,7 @@
 					location.reload();
 				},
 				error: function () {
-				  alert('Bummer: there was an error!');
+				  alert('Il y a eu une erreur, Veuillez réessayer plus tard !');
 				}
 			}); 
 		} 
