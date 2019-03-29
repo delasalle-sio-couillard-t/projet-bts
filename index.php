@@ -26,30 +26,33 @@
 			</div>
 			<!-- Création pour les smoothies -->
 			<div class="container">
-				<table class="table">
+				<table class="table_presentation">
 					<?php
 						$reqProduit = $cnx->prepare("SELECT * FROM produit");
 						$reqProduit->execute();
 						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
-						
-						$compteur = 0;
 										
 						while($ligneProduit)
 						{		
-							$compteur = $compteur + 1;
-							
-							if($compteur == 1)
-							{
-								echo '<tr>';
-							}
 							echo 	'<td>
 										<label for="'.$ligneProduit->id.'">
-											<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'" onclick=getFocus("collapse'.$ligneProduit->id.'")></br></br>
+											<img src="images/'.$ligneProduit->image.'" width="250" height="380" data-toggle="collapse" href="#collapse'.$ligneProduit->id.'" role="button" aria-expanded="false" aria-controls="'.$ligneProduit->libelle.'" onclick=hideCollapse("collapse'.$ligneProduit->id.'")></br></br>
 											<h4>'.
 												utf8_encode($ligneProduit->libelle).													
 											'</h4>
-										</label>';	
-									
+										</label>
+									<td>';
+							$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+						}
+						echo '</table>';
+						
+						$reqProduit = $cnx->prepare("SELECT * FROM produit");
+						$reqProduit->execute();
+						$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
+						
+						
+						while($ligneProduit)
+						{			
 							echo'	<form method="post" action="achat_smoothie.php">
 										<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'">
 											<div class="collapse" id="collapse'.$ligneProduit->id.'" >'.
@@ -63,6 +66,9 @@
 																<td>'.
 																	utf8_encode($ligneProduit->description).
 																'</td>
+																<td>
+																	<img src="Images/icons8-delete-50.png" class="button" onclick="closeCollapse(collapse'.$ligneProduit->id.')">
+																<td>
 															</tr>
 															<tr>
 																<td>'.
@@ -80,25 +86,31 @@
 											</div>
 										</form>
 									</td>';		
-							
-							if($compteur == 4)
-							{
-								echo '</tr>';
-								$compteur = 0;
-							}
-													
+									
 							$ligneProduit = $reqProduit->fetch(PDO::FETCH_OBJ);
 						}
 					?>				
-				</table>
 			</div>
 		</div>
-		<?php include('include/footer.php');?>
-		
+		<?php include('include/footer.php');?>		
 		<script>
-			function getFocus(id){           
-				document.getElementById(id).focus();
-				console.log(id);
+			function hideCollapse(id){					
+				if(id === 'collapse1'){	
+					$('#collapse2').collapse('hide');
+					$('#collapse3').collapse('hide');
+				}
+				else if(id === 'collapse2'){	
+					$('#collapse1').collapse('hide');
+					$('#collapse3').collapse('hide');				
+				}
+				else if(id === 'collapse3'){
+					$('#collapse1').collapse('hide');
+					$('#collapse2').collapse('hide');
+				}
+			}
+			
+			function closeCollapse(id){
+				$(id).collapse('hide');				
 			}
 		</script>
 	</body>

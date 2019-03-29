@@ -29,7 +29,7 @@ body
 	background-size: cover;
 }
 
-#tout
+.tout
 {
 	margin-top:70px;
 }
@@ -39,7 +39,13 @@ body
 }
 
 
-#card_smoothie{
+.table_presentation{
+	width: 100%;
+	height:50%;
+	text-align: center;
+}
+
+.card_smoothie{
 	background-color:rgba(255, 255, 255, 0.8);
 	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
