@@ -100,12 +100,7 @@ class Outils
 		}
 		return $tableauLignesCommandes;
 	}
-
-	
-	
-	public static function deleteUneLignePanier($id){
-		echo 'oui';
-	}
+		
 	
     // fournit true si $codePostalAvalider est un code postal valide (5 chiffres), false sinon
     public static function estUnCodePostalValide($codePostalAvalider)

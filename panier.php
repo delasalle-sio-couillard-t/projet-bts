@@ -24,6 +24,7 @@
         <title>Panier HTML5 + JavaScript</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">	
         <script type="text/javascript" src="panier.js"></script>
+	</head>
 	<?php
 	
 	$mail = $_SESSION ['adrMail'];	
@@ -32,8 +33,7 @@
 	$commande = Outils::getCommandeUtilisateurEnCours($idUtilisateur); //retourne un objet
 	$ligneCommande = Outils::getLigneCommandeByIdCommande($commande->id);//retourne un tableau
 	
-	echo'
-    </head>
+	echo'    
     <body>	
         <section class="container">
                 <legend>Contenu du panier</legend>
@@ -68,6 +68,19 @@
                 <label id = "nbreLignes" hidden>0</label>
         </section>';
 		include('include/footer.php');
-    echo '</body>
+	?>
+	</body>
+	<script>
+		function deleteUneLignePanier(id) {
+			 $.ajax({
+				url:'deleteLignePanier.php?id=' + id,
+				complete: function (response) {
+					location.reload();
+				},
+				error: function () {
+				  alert('Bummer: there was an error!');
+				}
+			}); 
+		} 
+	</script>
 </html>';
-?>
