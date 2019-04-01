@@ -67,7 +67,7 @@
                 <br><label>Prix du panier total</label> : <label id = "prixTotal">'.$prixTotal.'€</label>
                 <label id = "nbreLignes" hidden>0</label>
 				<br>
-				<a href="index.php" class="btn btn-dark">Retour a l\'acceuil</a>
+				<a href="index.php" class="btn btn-dark">Continuer son panier</a>
         </section>';
 		include('include/footer.php');
 	?>
