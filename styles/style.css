@@ -29,6 +29,16 @@ body
 	background-size: cover;
 }
 
+.box
+{
+	background-color:rgba(220, 220, 220, 0.5);
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+	width:65%;
+	margin: auto;
+	 border-radius: 10px;
+	
+}
+
 .tout
 {
 	margin-top:70px;

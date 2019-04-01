@@ -39,48 +39,50 @@
 	
 	echo'
     </head>
-    <body style="background-color:#eee7e7">
-		<form method="post" action="action_achat.php">
-			<section class="container">
-					<legend>Gestion du panier</legend>
-					
-					<input type="hidden" id="prixInitial" value="'.$ligneProduit->prix.'"></input>
-					<table class="table">
-						<tr>
-							<td>
-								<label class="col-lg-3">Smoothie</label>
-							</td>
-							<td>
-								'.utf8_encode($ligneProduit->libelle).'
-								<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'" id = "id" style="border:none; background-color:transparent;width=130px" class="input-sm form-control" size="30"></input>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label class="col-lg-3" >Quantité</label>
-							</td>
-							<td>
-								<input type = "number" name="quantite" min="1" id = "qte" style="width:120px" value="1" class="input-sm form-control" OnChange= "change()" ></input>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<label class="col-lg-3">Prix</label>
-							</td>
-							<td>
-								<input type = "text" name="prix" id = "prix" style="border:none; background-color:transparent;with=100px" class="input-sm form-control" value="'.$ligneProduit->prix.'" disabled></input>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button class="btn btn-outline-dark" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
-							</td>
-							<td>
-							</td>
-						</tr>
-					</table>
-			</section>
-		</form>		
+    <body>
+		<div class="box">
+			<form method="post" action="action_achat.php">
+				<section class="container">
+						<legend>Gestion du panier</legend>
+						
+						<input type="hidden" id="prixInitial" value="'.$ligneProduit->prix.'"></input>
+						<table class="table">
+							<tr>
+								<td>
+									<label class="col-lg-3">Smoothie</label>
+								</td>
+								<td>
+									'.utf8_encode($ligneProduit->libelle).'
+									<input type="hidden" name="idProduit" value="'.$ligneProduit->id.'" id = "id" style="border:none; background-color:transparent;width=130px" class="input-sm form-control" size="30"></input>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="col-lg-3" >Quantité</label>
+								</td>
+								<td>
+									<input type = "number" name="quantite" min="1" id = "qte" style="width:120px" value="1" class="input-sm form-control" OnChange= "change()" ></input>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="col-lg-3">Prix</label>
+								</td>
+								<td>
+									<input type = "text" name="prix" id = "prix" style="border:none; background-color:transparent;with=100px" class="input-sm form-control" value="'.$ligneProduit->prix.'" disabled></input>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button class="btn btn-outline-dark" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
+								</td>
+								<td>
+								</td>
+							</tr>
+						</table>
+				</section>
+			</form>	
+		<div>
 	</body>';
 	
 	include('include/footer.php');
