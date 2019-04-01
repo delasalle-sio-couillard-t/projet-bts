@@ -47,7 +47,7 @@
 					$req_pre = $cnx->prepare("SELECT * FROM utilisateur WHERE adrMail=:adrMail AND mdp=:mdp");
 					// liaison des variables à la requête préparée
 					$req_pre->bindValue(':adrMail', $_POST['adrMail'], PDO::PARAM_STR);
-					// dans la base de données de l'application VALRES, les mots de passe sont codés en md5 
+
 					$req_pre->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
 					$req_pre->execute();
 					//le résultat est récupéré sous forme d'objet

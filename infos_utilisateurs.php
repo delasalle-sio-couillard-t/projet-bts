@@ -12,16 +12,7 @@
 	// inclusion des paramètres et de la bibliothéque de fonctions ("include_once" peut être remplacé par "require_once")
 	include_once ('include/_inc_parametres.php');
 	// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
-	include_once ('include/_inc_connexion.php');
-	
-
-	$adrMail = $_SESSION['adrMail'];
-	
-	$reqUtilisateur = $cnx->prepare("SELECT * FROM utilisateur WHERE adrMail = :adrMail");
-	$reqUtilisateur->bindValue(':adrMail',$adrMail,PDO::PARAM_STR);
-	$reqUtilisateur->execute();
-	$ligneUtilisateur = $reqUtilisateur->fetch(PDO::FETCH_OBJ);
-	
+	include_once ('include/_inc_connexion.php');	
 ?> 
 <html>
 	<!-- Début du corps -->  
@@ -35,26 +26,34 @@
 
 		
 			<div class="container">
-				<form method="post" action="test.php">
+				<form method="post" action="infos_utilisateurs_traitement.php">
 					<?php
-						 $idUtilisateur = $ligneUtilisateur->id;
-						 $mdp = $ligneUtilisateur->mdp;
-						 $nom = $ligneUtilisateur->nom;
-						 $prenom = $ligneUtilisateur->prenom;
-						 $rue = $ligneUtilisateur->rue;
-						 $cp = $ligneUtilisateur->cp;
-						 $ville = $ligneUtilisateur->ville;
-						 $telFixe = $ligneUtilisateur->tel_fixe;
-						 $telPort = $ligneUtilisateur->tel_portable;
+						$adrMail = $_SESSION['adrMail'];
+						
+						$reqUtilisateur = $cnx->prepare("SELECT * FROM utilisateur WHERE adrMail = :adrMail");
+						$reqUtilisateur->bindValue(':adrMail',$adrMail,PDO::PARAM_STR);
+						$reqUtilisateur->execute();
+						$ligneUtilisateur = $reqUtilisateur->fetch(PDO::FETCH_OBJ);
+							
+						$idUtilisateur = $ligneUtilisateur->id;
+						$mdp = $ligneUtilisateur->mdp;
+						$nom = $ligneUtilisateur->nom;
+						$prenom = $ligneUtilisateur->prenom;
+						$rue = $ligneUtilisateur->rue;
+						$cp = $ligneUtilisateur->cp;
+						$ville = $ligneUtilisateur->ville;
+						$telFixe = $ligneUtilisateur->tel_fixe;
+						$telPort = $ligneUtilisateur->tel_portable;
 
-					echo'						
+					echo'
+						<input type="hidden" value="'.$idUtilisateur.'" id = "idUtilisateur" class="input-sm form-control"></input>
 						<table class="table">
 							<tr>
 								<td>
 									<label>Nom</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($nom).'" id = "id" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($nom).'" id = "nom" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -62,7 +61,7 @@
 									<label>Prénom</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($prenom).'" id = "id" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($prenom).'" id = "prenom" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -70,7 +69,7 @@
 									<label>Rue</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($rue).'" id = "id" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($rue).'" id = "rue" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -78,7 +77,7 @@
 									<label>Code Postal</label>
 								</td>
 								<td>
-									<input type="text" value="'.$cp.'" id = "id" class="input-sm form-control"></input>
+									<input type="text" value="'.$cp.'" id = "cp" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -86,7 +85,7 @@
 									<label>Ville</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($ville).'" id = "id" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($ville).'" id = "ville" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -94,7 +93,7 @@
 									<label>Téléphone Fixe</label>
 								</td>
 								<td>
-									<input type="text" value="'.$telFixe.'" id = "id" class="input-sm form-control"></input>
+									<input type="text" value="'.$telFixe.'" id = "telFixe" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -102,7 +101,7 @@
 									<label>Téléphone Portable</label>
 								</td>
 								<td>
-									<input type="text" value="'.$telPort.'" id = "id" class="input-sm form-control"></input>
+									<input type="text" value="'.$telPort.'" id = "telPort" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
