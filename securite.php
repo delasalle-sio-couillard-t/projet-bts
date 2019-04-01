@@ -18,45 +18,71 @@
 <html>
 	<!-- Début du corps -->  
 	<body>
-		<div class="container-fluid">
-			<center>
-				<h2>
-					Votre compte
-				</h2>
-			</center>
-		</div>
-
-		<div class="container">
-			<form action = "traitementChangementMdp.php" method = "post">
+		<div class="box">
+			<div class="container-fluid">
+				<center>
+					<h2>
+						<img src="Images/votre_compte.png">
+					</h2>
+				</center>
+			</div>
+		
+		
+			<div class="container">
 				<h2> Changement de votre mot de passe : </h2>
-				<fieldset>
-					<label>Mot de passe actuel: </label>
-					<input name="mdpActuel" type="text" size ="25" required ><br/> 
-					<label>Mot de passe souhaité: </label>
-					<input name="newMdp" type="text" size ="25" required ><br/> 
-					<label>Confirmer le mot de passe: </label>
-					<input name="confirmationMdp" type="text" size ="25" required ><br/> 
-					<input type = "submit"  name="cmdValider" value ="Confirmer">
-				</fieldset>
-			</form>
-			
-			<form action = "traitementSuppressionCompte.php" method = "post">
-				<h2> Suppression du compte : </h2>
-				<fieldset>
-					<label>Mot de passe actuel: </label>
-					<input name="mdpActuel" type="text" size ="25" required ><br/>  
-					<label>Confirmer le mot de passe: </label>
-					<input name="confirmationMdp" type="text" size ="25" required ><br/> 
-					<input type = "submit"  name="cmdValider" value ="Confirmer">
-				</fieldset>
-			</form>
-			
-			<form action = "historiqueCommandes.php" method = "post">
-				<h2> Historique des commandes : </h2>
-				<fieldset>					
-					<input type = "submit"  name="cmdValider" value ="Consultation de vos commandes ">
-				</fieldset>
-			</form>
+				<form action = "traitementChangementMdp.php" method = "post">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>Mot de passe actuel: </td>
+								<td><input class="input-sm form-control" name="mdpActuel" type="text" size ="25" required ></td>
+							</tr>
+							<tr>
+								<td>Mot de passe souhaité: </td>
+								<td><input class="input-sm form-control" name="newMdp" type="text" size ="25" required ></td>
+							</tr>
+							<tr>
+								<td>Confirmer le mot de passe: </td>
+								<td><input class="input-sm form-control" name="confirmationMdp" type="text" size ="25" required ></td>
+							</tr>
+							<tr>
+								<td><input class="btn btn-outline-dark" type = "submit"  name="cmdValider" value ="Confirmer"></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				
+				<form action = "traitementSuppressionCompte.php" method = "post">
+					<h2> Suppression du compte : </h2>
+					
+										<table class="table">
+						<tbody>
+							<tr>
+								<td>Mot de passe actuel: </td>
+								<td><input class="input-sm form-control" name="mdpActuel" type="text" size ="25" required ></td>
+							</tr>
+							<tr>
+								<td>Confirmer le mot de passe: </td>
+								<td><input class="input-sm form-control" name="confirmationMdp" type="text" size ="25" required ></td>
+							</tr>
+							<tr>
+								<td><input class="btn btn-outline-dark" type = "submit"  name="cmdValider" value ="Confirmer"></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+						
+
+				</form>
+				
+				<form action = "historiqueCommandes.php" method = "post">
+					<h2> Historique des commandes : </h2>
+					<fieldset>					
+						<input class="btn btn-outline-dark" type = "submit"  name="cmdValider" value ="Consultation de vos commandes ">
+					</fieldset>
+				</form>
+			</div>
 		</div>
 		<?php include('include/footer.php');?>		
 	</body>

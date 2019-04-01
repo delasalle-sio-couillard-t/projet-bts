@@ -69,7 +69,6 @@
 					<label id = "nbreLignes" hidden>0</label><h5>
 					<br>
 					<a href="index.php" class="btn btn-dark">Continuer son panier</a>
-					<br><br>
 			</section>
 		</div>
 		';

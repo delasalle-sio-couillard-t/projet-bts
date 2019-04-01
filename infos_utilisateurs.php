@@ -29,9 +29,7 @@
 		<div class="box">
 			<div class="container-fluid">
 				<center>
-					<h2>
-						Vos informations
-					</h2>
+					<img src="Images/vos_infos.png">
 				</center>
 			</div>
 
