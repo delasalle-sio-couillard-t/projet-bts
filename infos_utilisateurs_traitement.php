@@ -15,59 +15,58 @@
 	include_once ('include/_inc_connexion.php');	
 	
 	$adrMail = $_SESSION['adrMail'];
+	$idUtilisateur = $_SESSION['idUtilisateur'];	
 	
-	if ( empty ($_POST ["idUtilisateur"]) == true)
-		$idUtilisateur = "";  
+	if (isset($_POST["nom"]))
+		$nom = $_POST["nom"];
 	else 
-		$idUtilisateur = $_POST ["idUtilisateur"];	
+		$nom = "marche pas";
 	
-	if ( empty ($_POST ["nom"]) == true)
-		$nom = "";  
+	if (isset($_POST["prenom"]))
+		$prenom = $_POST["prenom"];
 	else 
-		$nom = $_POST ["nom"];
-	
-	if ( empty ($_POST ["prenom"]) == true)
 		$prenom = "";  
-	else 
-		$prenom = $_POST ["prenom"];
 	
-	if ( empty ($_POST ["rue"]) == true)
+	if ( isset ($_POST["rue"]))
+		$rue = $_POST["rue"];
+	else 
 		$rue = "";  
-	else 
-		$rue = $_POST ["rue"];
 	
-	if ( empty ($_POST ["cp"]) == true)
+	if ( isset ($_POST["cp"]))
+		$cp = $_POST["cp"];
+	else 
 		$cp = "";  
-	else 
-		$cp = $_POST ["cp"];
 	
-	if ( empty ($_POST ["ville"]) == true)
+	if (isset($_POST["ville"]))
+		$ville = $_POST["ville"];
+	else 
 		$ville = "";  
-	else 
-		$ville = $_POST ["ville"];
 	
-	if ( empty ($_POST ["telFixe"]) == true)
+	if (isset($_POST["telFixe"]))
+		$telFixe = $_POST["telFixe"];
+	else 
 		$telFixe = "";  
-	else 
-		$telFixe = $_POST ["telFixe"];
 	
-	if ( empty ($_POST ["telPort"]) == true)
+	if (isset($_POST["telPort"]))
+		$telPort = $_POST["telPort"];
+	else 
 		$telPort = "";  
-	else 
-		$telPort = $_POST ["telPort"];
 	
 	
-	$reqUtilisateur = $cnx->prepare("UPDATE utilisateur SET adrMPail=:adrMail, nom=:nom, prenom=:prenom,rue=:rue,cp=:cp,ville=:ville,tel_fixe=:telFixe,tel_portable=:telPort WHERE id = :id");
-	$reqUtilisateur->bindValue(':adrMail',$adrMail,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':nom',$nom,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':prenom',$prenom,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':rue',$rue,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':cp',$cp,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':ville',$ville,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':telFixe',$telFixe,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':telPort',$telPort,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':id',$idUtilisateur,PDO::PARAM_INT);
+	// $reqUtilisateur = $cnx->prepare("UPDATE utilisateur SET adrMail=:adrMail, nom=:nom, prenom=:prenom,rue=:rue,cp=:cp,ville=:ville,tel_fixe=:telFixe,tel_portable=:telPort WHERE id = :id");
+	// $reqUtilisateur->bindValue(':adrMail',$adrMail,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':nom',$nom,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':prenom',$prenom,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':rue',$rue,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':cp',$cp,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':ville',$ville,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':telFixe',$telFixe,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':telPort',$telPort,PDO::PARAM_STR);
+	// $reqUtilisateur->bindValue(':id',$idUtilisateur,PDO::PARAM_INT);
 	
-	$test=$reqUtilisateur->execute();
-	echo $test;
+	// $reqUtilisateur->execute();
+	echo $idUtilisateur;
+	echo $nom;
+	echo $prenom;
+	echo $rue;
 ?> 

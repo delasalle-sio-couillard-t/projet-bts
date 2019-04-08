@@ -73,7 +73,9 @@
 						/* Si l'utilisateur a été trouvé  */
 						if($resultat == true)  {
 							/* sauvegarde de son nom et de son mot de passe dans des variables de session */
-							$_SESSION['adrMail']=$_POST['adrMail'];
+							$_SESSION['adrMail']=$_POST['adrMail'];							
+							
+							$_SESSION['idUtilisateur']= $resultat->id;
 						
 							/* si l'utilisateur connecté est un administrateur ou bien un autre utilisateur */
 							if($resultat->niveau == 2)	{

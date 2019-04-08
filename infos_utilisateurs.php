@@ -26,16 +26,16 @@
 
 		
 			<div class="container">
-				<form method="post" action="infos_utilisateurs_traitement.php">
+				<form method="POST" action="infos_utilisateurs_traitement.php">
 					<?php
 						$adrMail = $_SESSION['adrMail'];
+						$idUtilisateur = $_SESSION['idUtilisateur'];
 						
 						$reqUtilisateur = $cnx->prepare("SELECT * FROM utilisateur WHERE adrMail = :adrMail");
 						$reqUtilisateur->bindValue(':adrMail',$adrMail,PDO::PARAM_STR);
 						$reqUtilisateur->execute();
 						$ligneUtilisateur = $reqUtilisateur->fetch(PDO::FETCH_OBJ);
 							
-						$idUtilisateur = $ligneUtilisateur->id;
 						$mdp = $ligneUtilisateur->mdp;
 						$nom = $ligneUtilisateur->nom;
 						$prenom = $ligneUtilisateur->prenom;
@@ -45,15 +45,14 @@
 						$telFixe = $ligneUtilisateur->tel_fixe;
 						$telPort = $ligneUtilisateur->tel_portable;
 
-					echo'
-						<input type="hidden" value="'.$idUtilisateur.'" id = "idUtilisateur" class="input-sm form-control"></input>
+					echo'						
 						<table class="table">
 							<tr>
 								<td>
 									<label>Nom</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($nom).'" id = "nom" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($nom).'" id="nom" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
