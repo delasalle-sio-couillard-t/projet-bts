@@ -40,7 +40,6 @@
                 <div>
                     <form id="f_ajout_produit" action="" autocomplete="off"> 
                         <h6><u>Ajout d'un produit :</u></h6>
-
                         <input id="name" name="name" placeholder="Nom" required>
                         <button type="submit" value="Ajouter" class ='btn btn-outline-primary'>Ajouter</button>
                     </form>
@@ -49,7 +48,45 @@
                     <br>
                     <h6><u>Liste des produits</u></h6>
                     <div id="list_produit" class="list_produit">
-					
+						<table class="table">
+							<tr>
+								<th>
+									#
+								</th>
+								<th>
+									Libelle
+								</th>
+								<th>
+									Prix
+								</th>
+								<th>
+									Description
+								</th>
+								<th>
+								</th>
+								<th>
+								</th>
+							</tr>
+						<?php
+							$reqproduit = $cnx->prepare("SELECT * FROM produit;");
+							$reqproduit->execute();
+							$ligneProduits = $reqproduit->fetch(PDO::FETCH_OBJ);
+							
+							while($ligneProduits)					
+							{
+								echo '<tr>';
+								echo 	'<td>'.$ligneProduits->id.'</td>';
+								echo 	'<td>'.$ligneProduits->libelle.'</td>';
+								echo 	'<td>'.$ligneProduits->prix.' €</td>';
+								echo 	'<td>'.$ligneProduits->description.'</td>';
+								echo 	'<td><button class="btn btn-danger" onclick="deleteProduit('.$ligneProduits->id.')">Supprimer le produit</button></td>';
+								echo '</tr>';
+								
+								$ligneProduits = $reqproduit->fetch(PDO::FETCH_OBJ);
+							}
+						
+						?>
+						</table>
                     </div>
                 </div>
             </div>		
@@ -102,9 +139,10 @@
 					}
 				
 				?>
-				<table>
+				</table>
 			</div>
         </div>
+		<?php include('include/footer.php');?>
 	</body>
 	<script>
 		document.getElementById('gestion_produit').style.display ="none";
@@ -128,5 +166,17 @@
                 x.style.display = "none";
             }
         }
+		
+		function deleteProduit(id) {
+			 $.ajax({
+				url:'deleteProduit.php?id=' + id,
+				complete: function (response) {
+					location.reload();
+				},
+				error: function () {
+				  alert('Il y a eu une erreur, Veuillez réessayer plus tard !');
+				}
+			}); 
+		} 
 	</script>
 </html>
