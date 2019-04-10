@@ -52,7 +52,7 @@
 									<label>Nom</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($nom).'" id="nom" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($nom).'" name="nom" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -60,7 +60,7 @@
 									<label>Prénom</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($prenom).'" id = "prenom" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($prenom).'" name = "prenom" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -68,7 +68,7 @@
 									<label>Rue</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($rue).'" id = "rue" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($rue).'" name = "rue" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -76,7 +76,7 @@
 									<label>Code Postal</label>
 								</td>
 								<td>
-									<input type="text" value="'.$cp.'" id = "cp" class="input-sm form-control"></input>
+									<input type="text" value="'.$cp.'" name = "cp" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -84,7 +84,7 @@
 									<label>Ville</label>
 								</td>
 								<td>
-									<input type="text" value="'.utf8_encode($ville).'" id = "ville" class="input-sm form-control"></input>
+									<input type="text" value="'.utf8_encode($ville).'" name = "ville" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -92,7 +92,7 @@
 									<label>Téléphone Fixe</label>
 								</td>
 								<td>
-									<input type="text" value="'.$telFixe.'" id = "telFixe" class="input-sm form-control"></input>
+									<input type="text" value="'.$telFixe.'" name = "telFixe" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>
@@ -100,7 +100,7 @@
 									<label>Téléphone Portable</label>
 								</td>
 								<td>
-									<input type="text" value="'.$telPort.'" id = "telPort" class="input-sm form-control"></input>
+									<input type="text" value="'.$telPort.'" name = "telPort" class="input-sm form-control"></input>
 								</td>
 							</tr>
 							<tr>

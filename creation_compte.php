@@ -14,21 +14,33 @@
 	// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
 	include_once ('include/_inc_connexion.php');	
 	
-	$adrMail = $_SESSION['adrMail'];
-	$idUtilisateur = $_SESSION['idUtilisateur'];	
+
+	//infos obligatoires
+	if (isset($_POST['mail']))
+		$adrMail = $_POST['mail'];
+	else 
+		$adrMail = "";
+	
+	if (isset($_POST['mdp']))
+		$mdp = $_POST['mdp'];
+	else 
+		$mdp = "";
 	
 	if (isset($_POST['nom']))
-		$nom = utf8_decode($_POST['nom']);
+		$nom = $_POST['nom'];
 	else 
 		$nom = "";
 	
 	if (isset($_POST["prenom"]))
-		$prenom = utf8_decode($_POST["prenom"]);
+		$prenom = $_POST["prenom"];
 	else 
-		$prenom = "";  
+		$prenom = "";
 	
+	
+	
+	//autres infos
 	if ( isset ($_POST["rue"]))
-		$rue = utf8_decode($_POST["rue"]);
+		$rue = $_POST["rue"];
 	else 
 		$rue = "";  
 	
@@ -38,7 +50,7 @@
 		$cp = "";  
 	
 	if (isset($_POST["ville"]))
-		$ville = utf8_decode($_POST["ville"]);
+		$ville = $_POST["ville"];
 	else 
 		$ville = "";  
 	
@@ -53,8 +65,9 @@
 		$telPort = "";  
 	
 	
-	$reqUtilisateur = $cnx->prepare("UPDATE utilisateur SET adrMail=:adrMail, nom=:nom, prenom=:prenom,rue=:rue,cp=:cp,ville=:ville,tel_fixe=:telFixe,tel_portable=:telPort WHERE id = :id");
+	$reqUtilisateur = $cnx->prepare("INSERT INTO utilisateur(adrMail, mdp, niveau, nom, prenom, rue, cp, ville, tel_fixe, tel_portable) VALUES(:adrMail, :mdp, 1, :nom, :prenom, :rue, :cp, :ville, :telFixe, :telPort);");
 	$reqUtilisateur->bindValue(':adrMail',$adrMail,PDO::PARAM_STR);
+	$reqUtilisateur->bindValue(':mdp',$mdp,PDO::PARAM_STR);
 	$reqUtilisateur->bindValue(':nom',$nom,PDO::PARAM_STR);
 	$reqUtilisateur->bindValue(':prenom',$prenom,PDO::PARAM_STR);
 	$reqUtilisateur->bindValue(':rue',$rue,PDO::PARAM_STR);
@@ -62,10 +75,9 @@
 	$reqUtilisateur->bindValue(':ville',$ville,PDO::PARAM_STR);
 	$reqUtilisateur->bindValue(':telFixe',$telFixe,PDO::PARAM_STR);
 	$reqUtilisateur->bindValue(':telPort',$telPort,PDO::PARAM_STR);
-	$reqUtilisateur->bindValue(':id',$idUtilisateur,PDO::PARAM_INT);
 	
 	$reqUtilisateur->execute();
 	
-	header('Location: infos_utilisateurs.php');
+	header('Location: connexion.php');
 	exit();
 ?> 

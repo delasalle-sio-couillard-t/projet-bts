@@ -149,7 +149,7 @@
 							<input type="submit" value="Valider" class="btnSubmit">
 							<br>
 							<br>
-							<a href="forgetMdp.php" ><u>Mot de passe oublié ?</u></a>
+							<a href="nouveau_compte.php" ><u>Pas encore inscrit ?</u></a>
 						</form>
 					</div>				
 				</div>
