@@ -100,6 +100,29 @@ body
 }
 /*fin page de connexion*/
 
+/*page admin*/
+.bouton_selection{
+  padding : 10px;
+}
+
+.gestion_produit{
+  width: 35%;
+  margin-left: 4%;
+  float:left;
+}
+
+.list_produit{
+  max-height: 410px;
+  overflow-y: auto;
+}
+
+.div_scrollbar{
+	margin-top:70px;
+	max-height: 450px;
+	overflow-y: auto;
+}
+/*fin page admin*/
+
 
  
 

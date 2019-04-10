@@ -1,5 +1,5 @@
 TO DO LIST :
 (Ajouter ici ce qu'il faut faire)
 -finaliser la commande
--btn supprimer panier
+-si pas de commande erreur dans le panier !
 
