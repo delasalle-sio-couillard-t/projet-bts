@@ -26,8 +26,8 @@
 									Gestion de son compte
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								  <a class="dropdown-item" href="infos_utilisateurs.php" style="color: white !important; font-size: 1.5em !important;">Informations personnelles</a>
-								  <a class="dropdown-item" href="securite.php" style="color: white !important; font-size: 1.5em !important;">Sécurité</a>
+								  <a class="dropdown-item" href="infos_utilisateurs.php">Informations personnelles</a>
+								  <a class="dropdown-item" href="securite.php">Sécurité</a>
 								</div>
 							</li>';
 							
