@@ -6,7 +6,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light">
-	<a class="navbar-brand" href="index.php">
+	<a class="navbar-brand" style="color: white !important; font-size: 2em !important;" href="index.php">
 		<img src="images/logo (2).png" width="64" height="48" alt="">
 		Râ'Smoothie
 	</a>
@@ -18,22 +18,22 @@
 			<?php
 				if(isset($_SESSION['niveau']) == true){
 					echo 	'<li class="nav-item">
-								<a class="nav-link" href="panier.php">Panier</a>
+								<a class="nav-link" href="panier.php" style="color: white !important; font-size: 1.5em !important;" >Panier</a>
 							</li>
 							
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white !important; font-size: 1.5em !important;">
 									Gestion de son compte
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								  <a class="dropdown-item" href="infos_utilisateurs.php">Informations personnelles</a>
-								  <a class="dropdown-item" href="securite.php">Sécurité</a>
+								  <a class="dropdown-item" href="infos_utilisateurs.php" style="color: white !important; font-size: 1.5em !important;">Informations personnelles</a>
+								  <a class="dropdown-item" href="securite.php" style="color: white !important; font-size: 1.5em !important;">Sécurité</a>
 								</div>
 							</li>';
 							
 					if($_SESSION['niveau']=='admin')
 					{
-						echo ('<li class="nav-item"><a class="nav-link " href="administration.php">Administration</a></li>');
+						echo ('<li class="nav-item"><a class="nav-link " href="administration.php" style="color: white !important; font-size: 1.5em !important;" >Administration</a></li>');
 					}
 				}
 			 ?>
