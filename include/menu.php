@@ -43,12 +43,12 @@
 				if(isset($_SESSION['niveau'])!=true)
 				{
 						echo '<li class="nav-item">
-								<a class="nav-link" href="connexion.php">Connexion</a>
+								<a class="nav-link" href="connexion.php" style="color: white !important; font-size: 1.5em !important;">Connexion</a>
 							</li>';
 				}
 				else{
 					echo 	'<li class="nav-item">
-								<a class="nav-link" href="connexion.php?action=deconnexion">Se déconnecter</a>
+								<a class="nav-link" href="connexion.php?action=deconnexion" style="color: white !important; font-size: 1.5em !important;">Se déconnecter</a>
 							</li>';
 				}
 			?>			
